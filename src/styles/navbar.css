@@ -1,0 +1,41 @@
+.navbar{
+    display: flex;
+    align-items: center;
+    padding: 1.2rem 1rem;
+    background: transparent;
+    justify-content: space-between;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    color: white;
+}
+.nav_links{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.nav_links > li{
+    list-style-type: none;
+    text-align: center;
+}
+.li{
+    padding:0.3rem 1rem;
+    border-radius: 1rem;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+.active{
+    color: white;
+}
+.active:hover{
+    background-color: rgba(0, 0, 0,0.3);
+}
+#blogs{
+    background-color: orange;
+    border-radius: 1rem;
+}
+#blogs:hover{
+    background-color: white;
+    color: orange;
+}

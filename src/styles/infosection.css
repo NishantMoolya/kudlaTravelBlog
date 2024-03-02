@@ -1,0 +1,27 @@
+.info_frame{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+}
+.sections{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: 400px;
+    justify-content: space-evenly;
+}
+.img{
+    height: 400px;
+    width: auto;
+    border-radius: 1rem;
+}
+.firstdiv{
+    width: 50%;
+    padding: 1rem;
+    font-family:serif;
+}
+.firstdiv > h3{
+    margin-bottom: 0.5rem;
+    font-size: 25px;
+}

@@ -1,0 +1,24 @@
+.hero_frame{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 2rem;
+    background-image: url('../assets/beach1.jpg');
+    object-fit: contain;
+    background-repeat: no-repeat;
+    height: 30rem;
+    gap: 2rem;
+    font-family: "Pacifico", cursive;
+    color: white;
+}
+.hero_frame > h2{
+    text-transform: capitalize;
+    font-size: 100px;
+}
+.hero_frame > h4{
+    text-transform: capitalize;
+    font-size: large;
+    font-family: "Black Ops One", system-ui;
+    color: black;
+}

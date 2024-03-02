@@ -1,0 +1,11 @@
+.blog_frame{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 2rem;
+}
+.frame{
+    padding: 1.5rem;
+}
