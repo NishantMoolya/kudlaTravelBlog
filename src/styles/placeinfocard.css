@@ -1,0 +1,60 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.place_info_card_frame{
+    display: flex;
+}
+.place_info_card_div_1{
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.place_info_card_div_2{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.place_info_card_img_frame > img{
+    width: 100%;
+    height: 70vmin;
+    background-repeat: no-repeat;
+    object-fit: cover;
+    background-size: cover;
+    background-position: center;
+}
+.place_info_card_div_1 > h2{
+    text-decoration: underline;
+    text-transform: uppercase;
+    word-wrap: break-word;
+}
+.place_info_card_div_2 > ul > li{
+    list-style-type: none;
+    text-transform: capitalize;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+.place_info_card_div_2 > ul{
+    padding-inline: 1rem;
+}
+.place_info_card_map_btn{
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+.place_info_card_img_frame{
+    position: relative;
+}
+@media only screen and (max-width:425px){
+    .place_info_card_frame{
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+}
+

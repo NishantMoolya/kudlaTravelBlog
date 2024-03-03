@@ -1,14 +1,30 @@
-.places_frame{
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.place_page_frame{
+    padding-inline: 3vmax;
+    margin-top: 63px;
+    /* background-color: burlywood; */
     display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
     gap: 1rem;
-    padding: 2rem;
 }
-.frame{
-    padding: 1.5rem;
+.place_page_info{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: 90vmin;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
 }
-.frame > h3{
-
+.place_page_info::-webkit-scrollbar{
+    display: none;
+}
+@media only screen and (max-width:425px){
+    .place_page_info{
+        height: 100vmax;
+    }
 }
