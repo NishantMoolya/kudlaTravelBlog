@@ -1,41 +1,54 @@
+:root{
+    --orange:orange;
+    --white:white;
+    --light-black:rgba(0, 0, 0,0.2);
+}
 .navbar{
     display: flex;
     align-items: center;
-    padding: 1.2rem 1rem;
-    background: transparent;
+    padding:1rem;
     justify-content: space-between;
     position: absolute;
     width: 100%;
     top: 0;
     left: 0;
-    color: white;
+    color: var(--white);
+}
+.logo{
+    font-size: large;
 }
 .nav_links{
     display: flex;
     align-items: center;
     gap: 1rem;
+    flex-wrap: wrap;
 }
 .nav_links > li{
     list-style-type: none;
     text-align: center;
+    display: flex;
+    align-items: center;
 }
-.li{
-    padding:0.3rem 1rem;
-    border-radius: 1rem;
+.link{
     text-decoration: none;
-    font-size: 1.2rem;
+    color: var(--orange);
+    font-size: 1.1rem; 
+    padding: 0.2em 0.8em;
+    border-radius: 1em; 
 }
 .active{
-    color: white;
+    color: var(--white);
+    background-color: var(--light-black);
 }
-.active:hover{
-    background-color: rgba(0, 0, 0,0.3);
+.link:hover{
+    background-color: var(--light-black);
 }
 #blogs{
-    background-color: orange;
+    background-color: var(--orange);
     border-radius: 1rem;
+    color: var(--white);
 }
 #blogs:hover{
-    background-color: white;
-    color: orange;
+    background-color: var(--white);
+    color: var(--orange);
 }

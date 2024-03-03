@@ -1,0 +1,13 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.home_page_frame{
+    background-color: burlywood;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    margin-top: 7rem;
+    padding-inline: 3vmax;
+}

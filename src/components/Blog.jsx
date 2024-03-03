@@ -2,10 +2,12 @@ import React from 'react'
 import '../styles/blog.css'
 import beach from '../assets/beach1.jpg'
 import person from '../assets/person1.png'
-import { Badge, IconButton } from '@mui/material'
-import { Favorite, LocationOn, RemoveRedEye } from '@mui/icons-material'
+import { Badge, Button, Fab, IconButton } from '@mui/material'
+import { ArrowOutward, Favorite, LocationOn, RemoveRedEye } from '@mui/icons-material'
+import { blueGrey, grey } from '@mui/material/colors'
+import { NavLink } from 'react-router-dom'
 
-const Blog = () => {
+const Blog = ({ blogInfo }) => {
   return (
     <>
     <div className='blog_card'>
@@ -15,26 +17,29 @@ const Blog = () => {
                 <h6>Ramesh</h6>
                 <p>10-2-2024</p>
             </div>
+            <div id='blog_like'>
+            <Badge badgeContent={10} color={grey[500]}>
+            <Favorite color='error' />
+            </Badge>
+            </div>
         </div>
-        <div>
+        <div className='blog_img_frame'>
             <img className='blog_img' src={beach} />
+            <div id='blog_view'> 
+                <NavLink to='/blogs'>
+                    <Fab size='small'>
+                        <ArrowOutward />
+                    </Fab>
+                </NavLink>
+            </div>
         </div>
         <div className='blog_content'>
             <div className='location'>
                 <IconButton>
                     <LocationOn />
                 </IconButton>
-            <h3>Mangalore</h3>
+            <h3>panambur beach</h3>
             </div>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, ab! Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, repudiandae! Soluta quas veritatis libero expedita illum, aperiam consequatur natus tempora?</p>
-        </div>
-        <div className='btns'>
-        <Badge badgeContent={4} color='error'>
-            <Favorite />
-        </Badge>
-        <Badge badgeContent={4} color='error'>
-            <RemoveRedEye />
-        </Badge>
         </div>
     </div>
     </>

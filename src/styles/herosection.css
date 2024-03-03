@@ -1,24 +1,74 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 .hero_frame{
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding: 2rem;
+    padding-top: 3rem;
     background-image: url('../assets/beach1.jpg');
-    object-fit: contain;
-    background-repeat: no-repeat;
-    height: 30rem;
-    gap: 2rem;
-    font-family: "Pacifico", cursive;
     color: white;
+    position: relative;
+    z-index: -1;
+    padding-bottom: 3rem;
+    min-height: 70vmin;
 }
 .hero_frame > h2{
     text-transform: capitalize;
-    font-size: 100px;
+    font-size: 6rem;
+    font-family: "Pacifico", cursive;
 }
 .hero_frame > h4{
     text-transform: capitalize;
-    font-size: large;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
     font-family: "Black Ops One", system-ui;
-    color: black;
+}
+.explore_btn{
+    margin-bottom: 2rem;
+    border: none;
+    font-size: 1rem;
+    padding: 0.5em 1em;
+    border-radius: 0.2em;
+    color: white;
+    background-color: orange;
+    box-shadow: 0px 1px 5px black;
+    text-transform: uppercase;
+}
+.explore_btn:active{
+    transform: scale(0.9);
+    background-color: rgb(230, 149, 0);
+}
+
+/* banner designs */
+
+.banner{
+    display: flex;
+    align-items: center;
+    background-color: orange;
+    border-radius: 1rem;
+    padding-block: 0.5rem;
+    position: absolute;
+    bottom: -76px;
+    flex-wrap: wrap;
+    z-index: 1000;
+}
+.count_divisons{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0.1rem 3rem;
+}
+#right_border{
+    border-right: 2px solid white;
+}
+.count_divisons > h4{
+    font-size: 5rem;
+}
+.count_divisons > h5{
+    font-size: 1.5rem;
+    text-transform: capitalize;
 }

@@ -1,0 +1,32 @@
+.place_card{
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.5rem;
+    min-width: 330px;
+    min-height: 400px;
+    background-position: center;
+    background-size: cover;
+    border: 2px solid #bdbdbd;
+    /* margin: 0.3rem; */
+}
+.place_content{
+    margin-top: auto;
+    color: black;
+    padding: 1rem;
+    color: white;
+    transition: all 0.2s linear;
+}
+.place_content > h2{
+    text-decoration: underline;
+    text-transform: capitalize;
+}
+.place_content:hover{
+    backdrop-filter: blur(3px);
+    transition: all 0.2s linear;
+}
+@media only screen and (max-width:350px){
+    .place_card{
+        min-height: 350px;
+        min-width: 260px;
+    }
+}
