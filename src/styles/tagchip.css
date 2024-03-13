@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.chip_frame{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    padding: 0.1em 0.6em;
+    background-color: #fff3e0;
+    border: 1px solid #ff9800;
+    border-radius: 1em;
+}
+.chip_frame > p{
+    display: inline;
+    text-transform: capitalize;
+    color: #ff9800;
+    text-align: center;
+}

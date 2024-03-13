@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import '../styles/searchplace.css'
 import { ArrowForwardIos } from '@mui/icons-material';
+import TagChip from './TagChip';
 
 const SearchPlace = () => {
 const [search, setSearch] = useState('');
@@ -26,9 +27,14 @@ const handleSearch = () => {
         </div>
         <div className='search_tags'>
             <h4>Popular recent search</h4>
-            <div className='tags_block'>
+            {/* <div className='tags_block'>
               {
                 searchArr.map((name,ind) => (<div key={ind} className='recent_search_tags'><p onClick={() => getTag(name,ind)}>{name}</p></div>))
+              }
+            </div> */}
+            <div className='tags_block'>
+              {
+                searchArr.map((name,ind) => <TagChip key={ind} name={name} />)
               }
             </div>
         </div>

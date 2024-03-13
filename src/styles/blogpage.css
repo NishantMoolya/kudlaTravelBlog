@@ -1,11 +1,28 @@
-.blog_frame{
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    gap: 1rem;
-    padding: 2rem;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-.frame{
-    padding: 1.5rem;
+.blog_page_frame{
+    margin-top: 63px;
+    padding-inline: 15vmax;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.blog_view_frame{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 1.5rem;
+}
+.create_blog_btn{
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+}
+@media only screen and (max-width:500px) {
+    .blog_page_frame{
+        padding-inline: 3vmax;
+    }
 }

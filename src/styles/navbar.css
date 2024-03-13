@@ -13,6 +13,7 @@
     top: 0;
     left: 0;
     color: var(--white);
+    /* box-shadow: 0px 0px 4px black; */
 }
 .logo{
     font-size: large;
@@ -51,4 +52,9 @@
 #blogs:hover{
     background-color: var(--white);
     color: var(--orange);
+}
+@media only screen and (max-width:550px) {
+   .nav_links{
+    display: none;
+   }
 }

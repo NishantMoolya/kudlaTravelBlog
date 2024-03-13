@@ -1,0 +1,102 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.blog_info_card_frame{
+    display: flex;
+    flex-direction: column;
+    /* background-color: burlywood; */
+    /* box-shadow: 0px 0px 5px gray; */
+}
+.blog_info_card_header{
+    display: flex;
+    align-items: center;
+}
+.blog_info_card_details > h6{
+    font-size: 1rem;
+    text-transform: capitalize;
+    text-align: left;
+
+}
+.blog_info_card_details > p{
+    font-size: 0.8rem;
+    text-align: left;
+    color: #9e9e9e;
+}
+.blog_info_card_midsection{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+.blog_info_card_header > img{
+    height: 4rem;
+    width: 4rem;
+    border-radius: 50%;
+}
+.blog_info_card_header > h4{
+    font-size: 1.3rem;
+    margin-bottom: 0.3em;
+}
+.blog_info_card_img{
+    object-fit: cover;
+    background-size: contain;
+    width: 100%;
+    max-height: 70vmin;
+    flex: 1;
+    border-radius: 0.3rem;
+}
+.blog_info_card_content{
+    flex: 1;
+    padding-inline: 1%;
+    display: flex;
+    flex-direction: column;
+    gap:0.3rem;
+}
+.blog_info_card_content > h4{
+    font-size: 1.1rem;
+    word-wrap: break-word;
+}
+.blog_info_card_content > p{
+    margin-top: 0.5rem;
+    font-size: 1.1rem;
+    word-wrap: break-word;
+    color: #616161;
+    line-height: 1.5em;
+    scroll-behavior: smooth;
+    overflow: hidden;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+}
+.blog_info_card_content > p::-webkit-scrollbar{
+    display: none;
+}
+#blog_info_card_readmore{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-start;
+    /* backdrop-filter: blur(1px); */
+    text-transform: capitalize;
+    color: #ff9800;
+    background-color: white;
+    font-size: 1rem;
+    padding: 0.2em 0.5em;
+    border-radius: 0.2em;
+    border: 1px solid #ff9800;
+}
+
+@media only screen and (max-width:350px) {
+    .blog_info_card_header > img{
+        height:3rem;
+        width:3rem;
+    }
+    .blog_info_card_header > h4{
+        font-size: 1.1rem;
+    }
+    .blog_info_card_details > h6{
+        color:#616161;
+        font-size: 0.9rem;
+    }
+}

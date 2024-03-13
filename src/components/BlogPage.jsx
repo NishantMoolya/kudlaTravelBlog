@@ -1,24 +1,29 @@
 import React from 'react'
-import Blog from './Blog'
 import '../styles/blogpage.css'
-import '../styles/blog.css'
-import beach from '../assets/beach1.jpg'
-import person from '../assets/person1.png'
-import { Badge, IconButton } from '@mui/material'
-import { Favorite, LocationOn, RemoveRedEye } from '@mui/icons-material'
+import BlogInfoCard from './BlogInfoCard'
+import blogInfo from '../data/blogInfo'
+import { Fab } from '@mui/material'
+import { EditNote } from '@mui/icons-material'
 
 const BlogPage = () => {
   return (
     <>
-    <div className='frame'>
-      <div>
-        <h3>Top stories</h3>
+    <div className='blog_page_frame'>
+      <div className='blog_view_frame'>
+      {
+        blogInfo.map((blog,ind) => (
+        <>
+        <BlogInfoCard key={ind} blog={blog} />
+        <hr />
+        </>))
+      }
       </div>
-    <div className='blog_frame'>
-    <Blog />
     </div>
+    <div className='create_blog_btn'>
+      <Fab color='warning'>
+        <EditNote />
+      </Fab>
     </div>
-    
     </>
   )
 }

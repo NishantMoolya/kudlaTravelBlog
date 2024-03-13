@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 .home_page_frame{
-    background-color: burlywood;
+    background-color: ;
     display: flex;
     flex-direction: column;
     gap: 4rem;
