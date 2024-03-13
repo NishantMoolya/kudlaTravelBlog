@@ -10,7 +10,7 @@ const HomePage = () => {
     <div>
         <HeroSection />
         <div className='home_page_frame'>
-        <SearchPlace />
+        {/* <SearchPlace /> */}
         <div>
           <h4>Popular places</h4>
           <Carousel />

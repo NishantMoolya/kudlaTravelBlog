@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import '../styles/searchplace.css'
+//import '../styles/searchplace.css'
 import { ArrowForwardIos } from '@mui/icons-material';
 import TagChip from './TagChip';
 

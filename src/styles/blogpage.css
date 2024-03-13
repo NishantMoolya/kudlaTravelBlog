@@ -21,6 +21,11 @@
     bottom: 1rem;
     right: 1rem;
 }
+.blog_page_search{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 @media only screen and (max-width:500px) {
     .blog_page_frame{
         padding-inline: 3vmax;
