@@ -13,7 +13,7 @@ const BlogPage = () => {
   const searchResults = async (_id) => {
     console.log('searching');
     try {
-      const data = await fetchResults(_id);
+      const data = await fetchResults(`/place/search/${_id}`);
       console.log(data);
       setBlogInfos(prev => ([...data,...prev]));
     } catch (err) {
@@ -25,7 +25,7 @@ const BlogPage = () => {
     <>
     <div className='blog_page_frame'>
       <div className='blog_page_search'>
-      <Search searchResults={searchResults} />
+      <Search searchResults={searchResults} label={'search blogs...'} />
       </div>
       <div className='blog_view_frame'>
       {

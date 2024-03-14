@@ -1,8 +1,9 @@
-const baseURL = 'http://localhost:8000/v1/api/place';
+const baseURL = 'http://localhost:8000/v1/api';
+//const blogURL = 'http://localhost:8000/v1/api/blog';
+const placeURL = `${baseURL}/place`;
 const accessSearchData = async () => {
-    const url = `${baseURL}/search`;
+    const url = `${placeURL}/search`;
     try {
-        //console.log('accessing');
         const res = await fetch(url);
         return await res.json();
     } catch (err) {
@@ -11,8 +12,8 @@ const accessSearchData = async () => {
     }
 };
 
-const fetchResults = async (_id) => {
-    const url = `${baseURL}/search/${_id}`;
+const fetchResults = async (link) => {
+    const url = `${baseURL}${link}`;
     try {
         console.log('accessing');
         const res = await fetch(url);

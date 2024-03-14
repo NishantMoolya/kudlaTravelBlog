@@ -12,6 +12,7 @@
 .blog_info_card_header{
     display: flex;
     align-items: center;
+    gap: 0.3rem;
 }
 .blog_info_card_details > h6{
     font-size: 1rem;
@@ -28,6 +29,7 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
+    gap: 0.3rem;
 }
 .blog_info_card_header > img{
     height: 4rem;
@@ -48,7 +50,6 @@
 }
 .blog_info_card_content{
     flex: 1;
-    padding-inline: 1%;
     display: flex;
     flex-direction: column;
     gap:0.3rem;

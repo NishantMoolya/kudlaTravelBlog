@@ -3,7 +3,7 @@ import '../styles/search.css'
 import { accessSearchData } from '../api/searchFetcher';
 
 //add fontawesome cdn link for icons in index.html
-const Search = ({ searchResults }) => {
+const Search = ({ searchResults,label }) => {
   const [search, setSearch] = useState({
     name:'',
     _id:''
@@ -28,10 +28,10 @@ const Search = ({ searchResults }) => {
   return (
     <div className='search_frame'>
         <div className='search_box'>
-        <input className='search_bar' value={search.name} onChange={(e) =>handleSearchInput(e)} placeholder='search...' />
+        <input className='search_bar' value={search.name} onChange={(e) =>handleSearchInput(e)} placeholder={label} />
         <div>{!search.name?null:<i className="fa-solid fa-xmark" onClick={() => setSearch({name:'',_id:''})}></i>}</div>
-        <button className='search_btn' onClick={() => {searchResults(search._id); setOpenBox(false)}}><i className="fa-solid fa-magnifying-glass"></i></button>
         </div>
+        <button className='search_btn' onClick={() => {searchResults(search._id); setOpenBox(false)}}><i className="fa-solid fa-magnifying-glass"></i></button>
 
        {(openBox && search.name) && <ul>
           {

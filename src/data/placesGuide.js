@@ -3,7 +3,7 @@ import beach from '../assets/Panambur-Beach.jpg'
 
 const placesGuide = [{
     placeName:'kadri temple',
-    placeContent:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste voluptates incidunt repellat accusamus tenetur repudiandae ea fuga placeat magnam consequatur.',
+    placeContent:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste voluptates incidunt repellat accusamus tenetur repudiandae ea fuga placeat magnam consequatur.Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste voluptates incidunt repellat accusamus tenetur repudiandae ea fuga placeat magnam consequatur.Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste voluptates incidunt repellat accusamus tenetur repudiandae ea fuga placeat magnam consequatur.Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste voluptates incidunt repellat accusamus tenetur repudiandae ea fuga placeat magnam consequatur.Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste voluptates incidunt repellat accusamus tenetur repudiandae ea fuga placeat magnam consequatur.Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste voluptates incidunt repellat accusamus tenetur repudiandae ea fuga placeat magnam consequatur.Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste voluptates incidunt repellat accusamus tenetur repudiandae ea fuga placeat magnam consequatur.Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste voluptates incidunt repellat accusamus tenetur repudiandae ea fuga placeat magnam consequatur.',
     img:temple,
     metadata:{
         type:'city temple',
@@ -14,7 +14,7 @@ const placesGuide = [{
 },
 {
     placeName:'panambur beach',
-    placeContent:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste voluptates incidunt repellat accusamus tenetur repudiandae ea fuga placeat magnam consequatur.',
+    placeContent:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste voluptates incidunt repellat accusamus tenetur repudiandae ea fuga placeat magnam consequatur.Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste voluptates incidunt repellat accusamus tenetur repudiandae ea fuga placeat magnam consequatur.Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste voluptates incidunt repellat accusamus tenetur repudiandae ea fuga placeat magnam consequatur.Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste voluptates incidunt repellat accusamus tenetur repudiandae ea fuga placeat magnam consequatur.Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste voluptates incidunt repellat accusamus tenetur repudiandae ea fuga placeat magnam consequatur.Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste voluptates incidunt repellat accusamus tenetur repudiandae ea fuga placeat magnam consequatur.',
     img:beach,
     metadata:{
         type:'sunny beach',
@@ -25,7 +25,7 @@ const placesGuide = [{
 },
 {
     placeName:'kadri temple',
-    placeContent:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste voluptates incidunt repellat accusamus tenetur repudiandae ea fuga placeat magnam consequatur.',
+    placeContent:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste voluptates incidunt repellat accusamus tenetur repudiandae ea fuga placeat magnam consequatur.Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste voluptates incidunt repellat accusamus tenetur repudiandae ea fuga placeat magnam consequatur.Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste voluptates incidunt repellat accusamus tenetur repudiandae ea fuga placeat magnam consequatur.Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste voluptates incidunt repellat accusamus tenetur repudiandae ea fuga placeat magnam consequatur.Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste voluptates incidunt repellat accusamus tenetur repudiandae ea fuga placeat magnam consequatur.Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste voluptates incidunt repellat accusamus tenetur repudiandae ea fuga placeat magnam consequatur.',
     img:temple,
     metadata:{
         type:'city temple',
@@ -36,7 +36,7 @@ const placesGuide = [{
 },
 {
     placeName:'panambur beach',
-    placeContent:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste voluptates incidunt repellat accusamus tenetur repudiandae ea fuga placeat magnam consequatur.',
+    placeContent:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste voluptates incidunt repellat accusamus tenetur repudiandae ea fuga placeat magnam consequatur.Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste voluptates incidunt repellat accusamus tenetur repudiandae ea fuga placeat magnam consequatur.Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste voluptates incidunt repellat accusamus tenetur repudiandae ea fuga placeat magnam consequatur.Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste voluptates incidunt repellat accusamus tenetur repudiandae ea fuga placeat magnam consequatur.Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste voluptates incidunt repellat accusamus tenetur repudiandae ea fuga placeat magnam consequatur.Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste voluptates incidunt repellat accusamus tenetur repudiandae ea fuga placeat magnam consequatur.',
     img:beach,
     metadata:{
         type:'sunny beach',

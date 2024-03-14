@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router-dom'
 //import BlogPage from './BlogPage'
 //import PlacesPage from './PlacesPage'
 import HomePage from './HomePage'
+import Spinner from './Spinner'
 const PlacesPage = lazy(() => import('./PlacesPage'));
 const BlogPage = lazy(() => import('./BlogPage'));
 
@@ -14,8 +15,8 @@ const App = () => {
       <Routes>
         <Route path='/'>
           <Route index element={<HomePage />} />
-          <Route path='blogs' element={<Suspense fallback={'Loading...'}><BlogPage /></Suspense>} />
-          <Route path='places' element={<Suspense fallback={'Loading...'}><PlacesPage /></Suspense>} />
+          <Route path='blogs' element={<Suspense fallback={<Spinner />}><BlogPage /></Suspense>} />
+          <Route path='places' element={<Suspense fallback={<Spinner />}><PlacesPage /></Suspense>} />
         </Route>
       </Routes>
     </div>

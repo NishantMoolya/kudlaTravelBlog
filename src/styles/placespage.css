@@ -23,7 +23,12 @@
 .place_page_info::-webkit-scrollbar{
     display: none;
 }
-@media only screen and (max-width:425px){
+.place_page_searchbar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@media only screen and (max-width:500px){
     .place_page_info{
         height: 100vmax;
     }

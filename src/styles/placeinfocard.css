@@ -5,20 +5,26 @@
 }
 .place_info_card_frame{
     display: flex;
+    flex-direction: column;
+}
+.place_info_card_content{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 .place_info_card_div_1{
     flex: 3;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     flex-wrap: wrap;
     gap: 1rem;
 }
 .place_info_card_div_2{
-    flex: 1;
+    flex: 2;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     flex-direction: column;
+    padding-block: 1rem;
 }
 .place_info_card_img_frame > img{
     width: 100%;
@@ -27,20 +33,50 @@
     object-fit: cover;
     background-size: cover;
     background-position: center;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
 }
-.place_info_card_div_1 > h2{
-    text-decoration: underline;
-    text-transform: uppercase;
+.place_info_card_frame > h2{
+    font-style: normal;
+    text-transform: capitalize;
     word-wrap: break-word;
+    background-color: orange;
+    color: white;
+    padding: 0.3rem;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
 }
 .place_info_card_div_2 > ul > li{
     list-style-type: none;
     text-transform: capitalize;
     word-wrap: break-word;
     word-break: break-all;
+    /* font-family: "Playfair Display", serif; */
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 500;
+    color: #616161;
 }
 .place_info_card_div_2 > ul{
-    padding-inline: 1rem;
+    padding-top: 0.5rem;
+}
+.place_info_card_div_2_content{
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+.place_info_card_div_2 > .place_info_card_div_2_content > p{
+    font-size: 1.1rem;
+    word-wrap: break-word;
+    color: #616161;
+    line-height: 1.5em;
+    scroll-behavior: smooth;
+    overflow: hidden;
+    -webkit-line-clamp: 7;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+}
+.place_info_card_div_2 > .place_info_card_div_2_content > p::-webkit-scrollbar{
+    display: none;
 }
 .place_info_card_map_btn{
     position: absolute;
@@ -50,11 +86,31 @@
 .place_info_card_img_frame{
     position: relative;
 }
-@media only screen and (max-width:425px){
-    .place_info_card_frame{
+#blog_info_card_readmore{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-start;
+    /* backdrop-filter: blur(1px); */
+    text-transform: capitalize;
+    color: #ff9800;
+    background-color: white;
+    font-size: 1rem;
+    padding: 0.2em 0.5em;
+    border-radius: 0.2em;
+    border: 1px solid #ff9800;
+}
+@media only screen and (max-width:500px){
+    .place_info_card_content{
         flex-direction: column;
         align-items: center;
-        gap: 0.5rem;
+        gap: 0.2rem;
+    }
+    .place_info_card_frame > h2{
+        font-size: 1.2rem;
+    }
+    .place_info_card_div_2{
+        padding-block: 0;
     }
 }
 

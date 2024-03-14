@@ -8,13 +8,20 @@
     padding-inline: 15vmax;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
 }
 .blog_view_frame{
     display: flex;
     flex-direction: column;
     width: 100%;
     gap: 1.5rem;
+    height: 90vmin;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+}
+.blog_view_frame::-webkit-scrollbar{
+    display: none;
 }
 .create_blog_btn{
     position: fixed;
@@ -29,5 +36,8 @@
 @media only screen and (max-width:500px) {
     .blog_page_frame{
         padding-inline: 3vmax;
+    }
+    .blog_view_frame{
+        height: 100vmax;
     }
 }
