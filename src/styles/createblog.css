@@ -1,0 +1,63 @@
+.create_blog_frame{
+    margin-top: 63px;
+    padding-inline: 15vmax;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.create_blog_form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+}
+.create_blog_form > textarea{
+    border: none;
+    outline: none;
+}
+#create_blog_title{
+    font-size: 1.5rem;
+    padding-block: 0.4em;
+    font-weight: 500;
+    border-bottom: 3px solid orange;
+}
+#create_blog_title::placeholder{
+    text-transform: capitalize;
+}
+#create_blog_content{
+    font-size: 1rem;
+    padding: 0.4em 0.2em;
+    border: 1px solid orange;
+    /* border-bottom: 3px solid orange; */
+    border-radius: 0.5em;
+}
+#create_blog_content::placeholder{
+    text-transform: capitalize;
+}
+.create_blog_btns{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.create_blog_btns > button{
+    color: white;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    padding: 0.4em 0.8em;
+    border-radius: 0.2em;
+    background-color: orange;
+    border: 2px solid orange;
+}
+#cancel_btn{
+    background-color: white;
+    color: orange;
+}
+.create_blog_btns > button:active{
+    transform: scale(0.9);
+}
+@media only screen and (max-width:500px) {
+    .create_blog_frame{
+        padding-inline: 3vmax;
+    }
+}
