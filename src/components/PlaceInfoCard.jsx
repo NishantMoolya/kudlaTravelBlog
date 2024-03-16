@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import '../styles/placeinfocard.css'
 import { Fab, Tooltip } from '@mui/material'
 import { LocationOn } from '@mui/icons-material'
+import beach from '../assets/Panambur-Beach.jpg'
 
 const PlaceInfoCard = ({ place }) => {
     const [readMore, setReadMore] = useState({
@@ -23,7 +24,7 @@ const PlaceInfoCard = ({ place }) => {
       }, []);
   return (
     <div className='place_info_card_frame'>
-        <h2>{place.placeName}</h2>
+        <h2>{place.name}</h2>
         <div className='place_info_card_content'>
         <div className='place_info_card_div_1'>
             <div className='place_info_card_img_frame'>
@@ -34,19 +35,18 @@ const PlaceInfoCard = ({ place }) => {
                     </Fab>
                 </Tooltip>
             </div>
-            <img src={place.img} alt={`${place.placeName}'s image`} />
+            <img src={beach} alt={`${place.name}`} loading='lazy' />
             </div>
         </div>
         <div className='place_info_card_div_2'>
         <div className='place_info_card_div_2_content'>
-            <p style={readMore.expand ? height : null} ref={contentRef}>{place.placeContent}</p>
+            <p style={readMore.expand ? height : null} ref={contentRef}>{place.content}</p>
             {readMore.showBtn && <span id='blog_info_card_readmore' onClick={() => viewFullBlog()}>{readMore.expand ? 'read less' : 'read more'}</span>}
         </div>
             <ul>
-                <li><b>Category</b> : {place.metadata.type}</li>
-                <li><b>Food</b> : {place.metadata.food}</li>
-                <li><b>Climate</b> : {place.metadata.climate}</li>
-                <li><b>Address</b> : {place.metadata.add}</li>
+                {
+                  Object.entries(place.metadata).map((meta,ind) =>  (<li key={ind}><b>{meta[0]}</b> : {meta[1]}</li>))
+                }
             </ul>
         </div>
         </div>

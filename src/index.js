@@ -8,11 +8,9 @@ import navTheme from './styles/theme/navTheme';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
     <BrowserRouter>
     <ThemeProvider theme={navTheme}>
     <App />
     </ThemeProvider>
     </BrowserRouter>
-  </React.StrictMode>
 );

@@ -23,10 +23,10 @@ const HeroSection = () => {
   },[imageCounter]);
   return (
     <>
-    <div className='hero_frame' style={{backgroundImage:`url(${imageList[imageCounter]})`}}>
+    <div className='hero_frame' style={{backgroundImage:`url(${imageList[1]})`}}>
       <div className='hero_content_holder'>
       <div className='hero_image'>
-        <img src={imageList[imageCounter]} alt="" loading='lazy' />
+        <img src={imageList[1]} alt="" loading='lazy' />
       </div>
       <div className='hero_content'>
       <div className='hero_intro_content'>

@@ -8,7 +8,7 @@ const accessSearchData = async () => {
         return await res.json();
     } catch (err) {
         console.log(`enable to fetch searching data(searchFetcher):${err}`);
-        return null;
+        return [];
     }
 };
 
@@ -20,7 +20,7 @@ const fetchResults = async (link) => {
         return await res.json();
     } catch (err) {
         console.log(`enable to fetch search result for the place(searchFetcher):${err}`);
-        return null;
+        return [];
     }
 }
 export { accessSearchData,fetchResults };
