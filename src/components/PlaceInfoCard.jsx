@@ -35,7 +35,7 @@ const PlaceInfoCard = ({ place }) => {
                     </Fab>
                 </Tooltip>
             </div>
-            <img src={beach} alt={`${place.name}`} loading='lazy' />
+            <img src={place.image} alt={`${place.name}`} loading='lazy' />
             </div>
         </div>
         <div className='place_info_card_div_2'>

@@ -44,7 +44,7 @@ const BlogInfoCard = ({ blog }) => {
         <h4>{blog.title}</h4>
       </div>
       <div className='blog_info_card_midsection'>
-        <img className='blog_info_card_img' src={beach} alt={blog.placetag} />
+        <img className='blog_info_card_img' src={blog.image} alt={blog.placetag} />
         <div className='blog_info_card_content'>
           <div className='blog_info_card_header'>
             <img src={person} alt={`${blog.author}`} />

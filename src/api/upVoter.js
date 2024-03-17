@@ -4,7 +4,7 @@ const upVoter = async (_id,voted) => {
     const url = `${baseURL}/blog/vote/${_id}?voted=${voted}`;
     try {
         await fetch(url,{
-            method:'POST',
+            method:'PUT',
             headers:{
                 "Content-Type":"application/json"
             }
