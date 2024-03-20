@@ -18,7 +18,7 @@ const HeroSection = () => {
   let imageList = [beach1,hotel,beach2,temple];
   useEffect(() => {
     let intervalId = setInterval(() => setImageCounter(imageFader(imageList.length,imageCounter)),5000);
-    console.log(imageCounter);
+    //console.log(imageCounter);
     return () => clearInterval(intervalId);
   },[imageCounter]);
   return (

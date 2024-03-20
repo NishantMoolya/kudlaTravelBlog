@@ -2,10 +2,11 @@ import React, { useEffect,useState } from 'react'
 import { Box, Button, IconButton, InputAdornment, OutlinedInput, Paper, Stack, TextField, Typography } from '@mui/material'
 import { Visibility, VisibilityOff } from '@mui/icons-material'
 import { NavLink, useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
-const Signup = ({ auth }) => {
+const Signup = () => {
   const navigate = useNavigate();
-
+  const auth = useSelector(state => state.user.auth);
   useEffect(() => {
     if(auth) return navigate(-1);
   },[auth])

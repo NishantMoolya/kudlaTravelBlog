@@ -2,9 +2,13 @@ import React, { useEffect, useState } from 'react'
 import { Box, Button, IconButton, InputAdornment, OutlinedInput, Paper, Stack, TextField, Typography } from '@mui/material'
 import { Visibility, VisibilityOff } from '@mui/icons-material'
 import { NavLink, useNavigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { login } from '../redux/reducers/userReducer'
 
-const Login = ({ setUserInfo,auth,userInfo }) => {
+const Login = () => {
   const navigate = useNavigate();
+  const auth = useSelector(state => state.user.auth);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if(auth) return navigate(-1);
@@ -41,6 +45,7 @@ const Login = ({ setUserInfo,auth,userInfo }) => {
       if(data.status === 200){
         const { authenticate } = res;
         //setUserInfo(prev => ({...prev,auth:authenticate}));
+        dispatch(login());
         alert("Login successful");
         return navigate('/');
       }else if(data.status === 400){

@@ -1,0 +1,12 @@
+.profile_frame{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 63px;
+    padding-inline: 3vmax;
+}
+.profile_avatar{
+    height: 4rem;
+    width: 4rem;
+    border-radius: 50%;
+}
