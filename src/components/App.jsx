@@ -1,39 +1,33 @@
-import React, { Suspense, lazy, useEffect } from 'react'
-import Navbar from './Navbar'
+import React, { Suspense, lazy } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import HomePage from './HomePage'
 import Spinner from './Spinner'
-import CreateBlog from './CreateBlog'
-import ErrorPage from './ErrorPage'
-import { useDispatch, useSelector } from 'react-redux'
-import Profile from './Profile'
-import { authenticate } from '../redux/api/userApi'
+import PrivateRoute from './PrivateRoute'
+import Layout from './Layout'
+const ErrorPage = lazy(() => import('./ErrorPage'));
+const Profile = lazy(() => import('./Profile'));
+const CreateBlog = lazy(() => import('./CreateBlog'));
 const PlacesPage = lazy(() => import('./PlacesPage'));
 const BlogPage = lazy(() => import('./BlogPage'));
 const Signup = lazy(() => import('./Signup'));
 const Login = lazy(() => import('./Login'));
 
 const App = () => {
-  const dispatch = useDispatch();
-  //const userData = useSelector(state => state.user);
-  useEffect(() => {
-    dispatch(authenticate());
-    //console.log(userData);
-  },[]);
   return (
     <div>
-      <Navbar />
       <Routes>
-        <Route path='/'>
+        <Route path='/' element={<Layout />}>
           <Route index element={<HomePage />} />
           <Route path='blogs' element={<Suspense fallback={<Spinner />}><BlogPage /></Suspense>} />
           <Route path='places' element={<Suspense fallback={<Spinner />}><PlacesPage /></Suspense>} />
-          <Route path='about' element={<CreateBlog />} />
           <Route path='signup' element={<Suspense fallback={<Spinner />}><Signup /></Suspense>} />
-          <Route path='login' element={<Suspense fallback={<Spinner />}><Login auth={false} /></Suspense>} />
-          <Route path='profile' element={<Profile />} />
+          <Route path='login' element={<Suspense fallback={<Spinner />}><Login /></Suspense>} />
+          <Route path='user' element={<PrivateRoute />}>
+            <Route path='profile' element={<Suspense fallback={<Spinner />}><Profile /></Suspense>} />
+            <Route path='create' element={<Suspense fallback={<Spinner />}><CreateBlog /></Suspense>} />
+          </Route>
         </Route>
-        <Route path='*' element={<ErrorPage />} />
+        <Route path='*' element={<Suspense fallback={<Spinner />}><ErrorPage /></Suspense>} />
       </Routes>
     </div>
   )

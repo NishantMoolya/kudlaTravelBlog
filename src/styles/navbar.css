@@ -30,13 +30,14 @@
     text-align: center;
     display: flex;
     align-items: center;
+    text-transform: capitalize;
 }
 .link{
     text-decoration: none;
     color: var(--orange);
     font-size: 1.1rem; 
     padding: 0.2em 0.8em;
-    border-radius: 1em; 
+    border-radius: 1em;
 }
 .active{
     color: var(--white);

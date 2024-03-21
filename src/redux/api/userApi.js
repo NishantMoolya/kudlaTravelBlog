@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-const baseURL = 'http://localhost:8000/v1/api';
+const baseURL = process.env.REACT_APP_BASE_URL;
 
 const authenticate = createAsyncThunk("authUser", async () => {
     try {

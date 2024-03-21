@@ -1,31 +1,34 @@
 import React, { useEffect, useRef, useState } from 'react'
 import '../styles/blogpage.css'
 import BlogInfoCard from './BlogInfoCard'
-//import blogInfo from '../data/blogInfo'
 import { Fab } from '@mui/material'
 import { EditNote } from '@mui/icons-material'
 import Search from './Search'
-//import searchData from '../data/searchData'
-//import { fetchResults } from '../api/searchFetcher'
 import Loader from './Loader'
-//import { lazyFetcher } from '../api/lazyFetcher'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchBlogResults } from '../redux/api/searchApi'
 import { lazyBlogFetcher } from '../redux/api/LazyFetcherApi'
+import { NavLink } from 'react-router-dom'
+import { totalBlogsVoted } from '../api/upVoter'
 
 const BlogPage = () => {
   const blogInfoRef = useRef();
   const [page,setPage] = useState(1);
+  const [totalVotes,setTotalVotes] = useState([]);
 
   const canScroll = useSelector(state => state.blogInfos.canScroll);
   const isLoading = useSelector(state => state.blogInfos.isLoading);
   const blogInfos = useSelector(state => state.blogInfos.data);
+  const auth = useSelector(state => state.user.auth);
   
   const lazyDispatch = useDispatch();
-
   useEffect(() => {
     lazyDispatch(lazyBlogFetcher(page));
   },[page]);
+  
+  useEffect(() => {
+    totalBlogsVoted().then(data => setTotalVotes(data));
+  },[]);
   
   const searchResults = (_id) =>  lazyDispatch(fetchBlogResults(_id));
 
@@ -36,7 +39,7 @@ const BlogPage = () => {
   }
   
   
-
+  document.title = "Blogs-Namma Kudla";
   return (
     <>
     <div className='blog_page_frame'>
@@ -49,7 +52,7 @@ const BlogPage = () => {
       {
         blogInfos?.map((blog,ind) => (
           <>
-        <BlogInfoCard key={ind} blog={blog} />
+        <BlogInfoCard key={ind} blog={blog} auth={auth} totalBlogsVoted={totalVotes} />
         <hr />
         </>))
       }
@@ -60,9 +63,11 @@ const BlogPage = () => {
     </div>
     </div>
     <div className='create_blog_btn'>
+      <NavLink to='/user/create'>
       <Fab color='warning'>
         <EditNote />
       </Fab>
+      </NavLink>
     </div>
     </>
   )

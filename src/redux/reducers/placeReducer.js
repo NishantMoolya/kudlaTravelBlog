@@ -15,7 +15,6 @@ const placeSlice = createSlice({
             state.isLoading = true;
         })
         .addCase(lazyPlaceFetcher.fulfilled, (state,action) => {
-            console.log(action.payload);
             if(action.payload.length === 0) return {...state,canScroll:false,isLoading:false}
             else return {...state,data:[...state.data,...action.payload],isLoading:false}
         })

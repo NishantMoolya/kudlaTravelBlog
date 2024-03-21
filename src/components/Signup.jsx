@@ -13,17 +13,18 @@ const Signup = () => {
 
   const [pass, setPass] = useState(true);
 
+  const baseURL = process.env.REACT_APP_BASE_URL;
   const handleSignup = async (e) => {
     const { name,email,password } = formData;
     try {
       e.preventDefault();
-      const data = await fetch('http://localhost:8000/v1/api/user/signup',{
+      const data = await fetch(`${baseURL}/user/signup`,{
         method:"POST",
         headers:{"Content-Type":"application/json"},
         body:JSON.stringify({name:name.trim(),email:email.trim(),password:password.trim()})   
       });
       const response = await data.json();
-      console.log(response);
+      //console.log(response);
       if(data.status === 200){
         alert("User already registered");
         return navigate('/login');
@@ -50,12 +51,11 @@ const Signup = () => {
 
   const handleUserInput = (e) => {
     const { name,value } = e.target;
-    console.log(value);
     setFormData({
       ...formData,[name]:value
     });
   }
-
+  document.title = "Signup-Join the blogging community";
   return (
   <>
     {!auth && <Box display={'flex'} justifyContent={'center'} alignItems={'center'} height={'100vh'}>

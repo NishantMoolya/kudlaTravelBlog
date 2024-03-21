@@ -6,14 +6,15 @@ import TagChip from './TagChip'
 import Badge from '@mui/material/Badge';
 import { upVoter } from '../api/upVoter'
 import { voteChecker } from '../helpers/voteChecker'
+import { useNavigate } from 'react-router-dom'
 
-const BlogInfoCard = ({ blog }) => {
+const BlogInfoCard = ({ blog,auth,totalBlogsVoted }) => {
   const [readMore, setReadMore] = useState({
     showBtn: false,
     expand: false
   });
   const [upvote,setUpvote] = useState({
-    voted:voteChecker(blog._id),
+    voted:voteChecker(totalBlogsVoted,blog._id),
     voteCount:blog.metadata.upvotes
   });
   const height = {
@@ -29,13 +30,18 @@ const BlogInfoCard = ({ blog }) => {
     setReadMore(prev => ({ ...prev, showBtn: contentRef.current.scrollHeight > contentRef.current.clientHeight }))
   }, []);
   
+  const navigate = useNavigate();
   const handleVoting = () => {
-    if(!upvote.voted){
-      setUpvote(prev => ({...prev,voted:!prev.voted,voteCount:prev.voteCount+1}));
+    if(auth){
+      if(!upvote.voted){
+        setUpvote(prev => ({...prev,voted:!prev.voted,voteCount:prev.voteCount+1}));
+      }else{
+        setUpvote(prev => ({...prev,voted:!prev.voted,voteCount:prev.voteCount-1}));
+      }
+      upVoter(blog._id,!upvote.voted);
     }else{
-      setUpvote(prev => ({...prev,voted:!prev.voted,voteCount:prev.voteCount-1}));
+      navigate('/login');
     }
-    upVoter(blog._id,!upvote.voted);
   }
 
   return (
@@ -50,7 +56,7 @@ const BlogInfoCard = ({ blog }) => {
             <img src={person} alt={`${blog.author}`} />
             <div className='blog_info_card_details'>
               <h6>{blog.author}</h6>
-              <p>{blog.date}</p>
+              <p>{new Date(blog.date).toDateString()}</p>
             </div>
             <Badge badgeContent={upvote.voteCount} sx={{ marginLeft:'auto',marginRight:'1.2rem'}} color='warning'>
             {

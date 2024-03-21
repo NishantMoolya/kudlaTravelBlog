@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-const baseURL = 'http://localhost:8000/v1/api';
+const baseURL = process.env.REACT_APP_BASE_URL;
 const placeURL = `${baseURL}/place`;
 const blogURL = `${baseURL}/blog`;
 
@@ -18,7 +18,6 @@ const accessSearchData = createAsyncThunk("accessSearchData", async () => {
 const fetchPlaceResults = createAsyncThunk("fetchPlaceResults", async (_id) => {
     const url = `${placeURL}/search/${_id}`;
     try {
-        console.log('accessing');
         const res = await fetch(url);
         return await res.json();
     } catch (err) {
@@ -30,7 +29,6 @@ const fetchPlaceResults = createAsyncThunk("fetchPlaceResults", async (_id) => {
 const fetchBlogResults = createAsyncThunk("fetchBlogResults", async (_id) => {
     const url = `${blogURL}/search/${_id}`;
     try {
-        console.log('accessing');
         const res = await fetch(url);
         return await res.json();
     } catch (err) {

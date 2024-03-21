@@ -25,7 +25,6 @@ const userSlice = createSlice({
           })
           .addCase(authenticate.fulfilled, (state, action) => {
             state.auth = action.payload.authenticate;
-            console.log(action.payload);
           })
           .addCase(authenticate.rejected, (state, action) => {
             state.auth = action.payload.authenticate;
@@ -33,19 +32,11 @@ const userSlice = createSlice({
 
           builder.addCase(userLogout.fulfilled, (state, action) => {
             state.auth = action.payload.authenticate;
-            console.log(action.payload);
           });
 
           builder.addCase(getUserProfile.fulfilled, (state,action) => {
-            const { profile } = action.payload;
-            const { name,email,avatar,blogs,blogs_voted } = profile;
-            state.name = name;
-            state.email = email;
-            state.avatar = avatar;
-            state.blogs = blogs;
-            state.blogs_voted = blogs_voted;
-            state.auth = action.payload.authenticate;
-            console.log(state.name);
+            const { profile,authenticate } = action.payload;
+            return {...state,...profile,auth:authenticate}
           });
       }
 });

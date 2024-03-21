@@ -8,24 +8,32 @@ import Loader from './Loader';
 
 const CreateBlog = () => {
   const blogRef = useRef(null);
-  const [image,setImage] = useState('#');
+  const [image,setImage] = useState(null);
+  const [place,setPlace] = useState(null);
   const searchDispatch = useDispatch();
+  const user = useSelector(state => state.user);
+  const auth = useSelector(state => state.user.auth);
   const placeTags = useSelector(state => state.searchplace);
   const handleSubmit = async (e) => {
     try {
       e.preventDefault();
-      const blogInfo = new FormData(blogRef.current);
-      blogInfo.append("date",new Date().toDateString());
-      blogInfo.append("author","nishant");
-      blogInfo.append("avatar","my pic");
-      blogInfo.append("placetag","kadri temple");
-      //blogInfo.forEach((val,key) => console.log(key,val))
-      const data = await blogCreator('/blog/new',blogInfo);
-      console.log(data);
+      if(place){
+        const blogInfo = new FormData(blogRef.current);
+        blogInfo.append("date",new Date().toDateString());
+        blogInfo.append("author",user.name);
+        blogInfo.append("avatar",user.avatar);
+        blogInfo.append("placetag",place.name);
+        blogInfo.append("placetag_id",place._id);
+        //const data = await blogCreator('/blog/new',blogInfo);
+        blogInfo.forEach((val,key) => console.log(key,val));
+        setImage(null);
+        setPlace(null);
+        blogRef.current.reset();
+      }else{
+        alert("Please include all details");
+      }
     } catch (err) {
       console.log(`can't upload blog:${err}`);
-    }finally{
-      blogRef.current.reset();
     }
   }
 
@@ -37,7 +45,7 @@ const CreateBlog = () => {
     }
   }
   const [openModal,setOpenModal] = useState(false);
-  const [place,setPlace] = useState(null);
+  
   const addTag = (tag) => {
     setOpenModal(false);
     setPlace(tag);
@@ -46,12 +54,12 @@ const CreateBlog = () => {
     setOpenModal(true); 
     if(placeTags.length === 0) searchDispatch(accessSearchData());
   }
-
+  document.title = "Blog-Share your stories";
   return (
     <>
     <div className='create_blog_frame'>
         <form ref={blogRef} defaultValue={""} className='create_blog_form' method='post' encType={'multipart/form-data'} onSubmit={(e) => handleSubmit(e)}>
-            <textarea type="text" name="title" id='create_blog_title' placeholder='title' rows='1' required />
+            <textarea  name="title" id='create_blog_title' placeholder='title' rows='1' required />
             <div className='create_blog_tag_place'>
               <div>
               {place && <TagChip name={place.name} />}

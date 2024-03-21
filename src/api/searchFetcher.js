@@ -1,5 +1,5 @@
-const baseURL = 'http://localhost:8000/v1/api';
-//const blogURL = 'http://localhost:8000/v1/api/blog';
+const baseURL = process.env.REACT_APP_BASE_URL;
+
 const placeURL = `${baseURL}/place`;
 const accessSearchData = async () => {
     const url = `${placeURL}/search`;

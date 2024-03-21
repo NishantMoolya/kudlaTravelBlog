@@ -2,7 +2,9 @@ import React from 'react'
 
 const ErrorPage = () => {
   return (
-    <div>ErrorPage</div>
+    <div style={{ display:'flex',justifyContent:'center',alignItems:'center',height:'100vh'}}>
+      errorpage
+    </div>
   )
 }
 

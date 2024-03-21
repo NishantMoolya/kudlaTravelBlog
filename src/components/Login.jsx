@@ -11,7 +11,7 @@ const Login = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if(auth) return navigate(-1);
+    if(auth) return navigate('/');
   },[auth])
 
   const [pass, setPass] = useState(true);
@@ -29,22 +29,19 @@ const Login = () => {
       ...formData,[name]:value
     });
   }
-
+  const baseURL = process.env.REACT_APP_BASE_URL;
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
       const { email,password } = formData;
-      const data = await fetch('http://localhost:8000/v1/api/user/login',{
+      const data = await fetch(`${baseURL}/user/login`,{
         method:"POST",
         headers:{"Content-Type":"application/json"},
         credentials:"include",
         body:JSON.stringify({ email:email.trim(),password:password.trim() })
       });
       const res = await data.json();
-      console.log(res);
       if(data.status === 200){
-        const { authenticate } = res;
-        //setUserInfo(prev => ({...prev,auth:authenticate}));
         dispatch(login());
         alert("Login successful");
         return navigate('/');
@@ -62,7 +59,7 @@ const Login = () => {
     }
     setFormData(initialData);
   }
-
+  document.title = "Login-Welcome Back to Kudla";
   return (
     <>
     {!auth && <Box display={'flex'} justifyContent={'center'} alignItems={'center'} height={'100vh'}>

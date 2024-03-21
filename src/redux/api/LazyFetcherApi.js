@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-const baseURL = 'http://localhost:8000/v1/api';
+const baseURL = process.env.REACT_APP_BASE_URL;
 
 const lazyPlaceFetcher = createAsyncThunk("lazyPlaceFetcher", async (pageNo) => {
     const url = `${baseURL}/place?page=${pageNo}`;

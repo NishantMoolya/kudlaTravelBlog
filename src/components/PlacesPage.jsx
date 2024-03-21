@@ -34,6 +34,7 @@ const PlacesPage = () => {
     }
   }
 
+  document.title = "Places-Namma Kudla";
   return (
     <div className='place_page_frame'>
       <div className='place_page_searchbar'>

@@ -9,7 +9,6 @@ const searchSlice = createSlice({
     },
     extraReducers:(builder) => {
         builder.addCase(accessSearchData.fulfilled, (state,action) => {
-            console.log(action.payload);
             return [...state,...action.payload];
         });
     }
