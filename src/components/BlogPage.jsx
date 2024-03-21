@@ -1,57 +1,41 @@
 import React, { useEffect, useRef, useState } from 'react'
 import '../styles/blogpage.css'
 import BlogInfoCard from './BlogInfoCard'
-import blogInfo from '../data/blogInfo'
+//import blogInfo from '../data/blogInfo'
 import { Fab } from '@mui/material'
 import { EditNote } from '@mui/icons-material'
 import Search from './Search'
 //import searchData from '../data/searchData'
-import { fetchResults } from '../api/searchFetcher'
+//import { fetchResults } from '../api/searchFetcher'
 import Loader from './Loader'
-import { lazyFetcher } from '../api/lazyFetcher'
+//import { lazyFetcher } from '../api/lazyFetcher'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchBlogResults } from '../redux/api/searchApi'
+import { lazyBlogFetcher } from '../redux/api/LazyFetcherApi'
 
 const BlogPage = () => {
   const blogInfoRef = useRef();
-  const [blogInfos, setBlogInfos] = useState([]);
-  const [fetchMore,setFetchMore] = useState({
-    page:1,
-    isLoading:false,
-    canScroll:true
-  });
+  const [page,setPage] = useState(1);
 
-  const searchResults = async (_id) => {
-    console.log('searching');
-    try {
-      const data = await fetchResults(`/place/search/${_id}`);
-      console.log(data);
-      setBlogInfos(prev => ([...data,...prev]));
-    } catch (err) {
-      console.log(`an error in fetching search results(blogpage):${err}`);
-    }
-  }
+  const canScroll = useSelector(state => state.blogInfos.canScroll);
+  const isLoading = useSelector(state => state.blogInfos.isLoading);
+  const blogInfos = useSelector(state => state.blogInfos.data);
+  
+  const lazyDispatch = useDispatch();
 
-  const loadMore = async () => {
-    try {
-      let newBlogsInfo = await lazyFetcher('/blog',fetchMore.page);
-      if(newBlogsInfo.length === 0) setFetchMore(prev => ({...prev,canScroll:false}));
-      else setBlogInfos(prev => ([...prev,...newBlogsInfo]));
-    } catch (err) {
-      console.log(`an error in loading more(blogpage):${err}`);
-    }finally{
-      setFetchMore(prev => ({...prev,isLoading:false}));
-    }
-  }
+  useEffect(() => {
+    lazyDispatch(lazyBlogFetcher(page));
+  },[page]);
+  
+  const searchResults = (_id) =>  lazyDispatch(fetchBlogResults(_id));
 
   const handleScroll = () => {
     if(blogInfoRef.current.clientHeight + blogInfoRef.current.scrollTop+1 >= blogInfoRef.current.scrollHeight){
-      if(fetchMore.canScroll) setFetchMore(prev => ({...prev,page:prev.page+1,isLoading:true}));
+      if(canScroll) setPage(prev => prev+1);
     }
   }
   
-  useEffect(() => {
-    //console.log("page:",fetchMore.page);
-    loadMore();
-  },[fetchMore.page]);
+  
 
   return (
     <>
@@ -71,7 +55,7 @@ const BlogPage = () => {
       }
       </div>
       <div style={{ display:'flex',alignItems:'center',justifyContent:'center'}}>
-        {!fetchMore.canScroll?"Reached the end no more blogs avaliable":fetchMore.isLoading && <Loader />}
+        {!canScroll?"Reached the end no more blogs avaliable":isLoading && <Loader />}
       </div>
     </div>
     </div>

@@ -17,23 +17,28 @@
     outline: none;
 }
 #create_blog_title{
-    font-size: 1.5rem;
-    padding-block: 0.4em;
-    font-weight: 500;
+    font-size: 1.2rem;
+    padding: 0.5em;
+    /* font-weight: 500; */
     border-bottom: 3px solid orange;
 }
 #create_blog_title::placeholder{
     text-transform: capitalize;
+    color: #ff9800;
 }
 #create_blog_content{
     font-size: 1rem;
-    padding: 0.4em 0.2em;
-    border: 1px solid orange;
-    /* border-bottom: 3px solid orange; */
-    border-radius: 0.5em;
+    /* padding: 0.4em 0.2em; */
+    /* border: 1px solid orange; */
+    padding: 0.4em;
+    border-bottom: 3px solid orange;
+    /* border-radius: 0.5em; */
+    border-top-left-radius: 0.5em;
+    border-top-right-radius: 0.5em;
 }
 #create_blog_content::placeholder{
     text-transform: capitalize;
+    color: #ff9800;
 }
 .create_blog_btns{
     display: flex;
@@ -55,6 +60,103 @@
 }
 .create_blog_btns > button:active{
     transform: scale(0.9);
+}
+textarea{
+    resize: none;
+    background-color: #fff3e0;
+    font-size: 1rem;
+    border-top-left-radius: 0.5em;
+    border-top-right-radius: 0.5em;
+}
+.create_blog_place_btn{
+    align-self: flex-end;
+    color: white;
+    background-color: orange;
+    font-size: 0.9rem;
+    padding: 0.5em 0.5em;
+    border-radius: 0.5em;
+    border: none;
+    text-transform: capitalize;
+}
+.create_blog_image_div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.3rem;
+}
+.create_blog_image_div > img{
+    border-radius: 0.5rem;
+    max-height: 70vmin;
+}
+.create_blog_image_div > label{
+    font-size: 0.8rem;
+}
+input::-webkit-file-upload-button{
+    color: white;
+    background-color: #ff9800;
+    border: none;
+    font-size: 0.8rem;
+    padding: 0.5em;
+    border-radius: 0.2em;
+}
+.create_blog_modal{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0,0.3);
+}
+.search_places_list{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-height: 14rem;
+    overflow: hidden;
+    overflow-y: scroll;
+    width: 14rem;
+    background-color: #f5f5f5;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+}
+.search_places_list > li{
+    list-style-type: none;
+    font-size: 1rem;
+    padding: 0.5rem;
+    word-wrap: break-word;
+    border-bottom: 1px solid gray;
+}
+.search_places_list > li:hover{
+    background-color: #eeeeee;
+}
+.search_places_list::-webkit-scrollbar{
+    display: none;
+}
+.search_places_frame{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.2rem;
+}
+.search_places_close_btn{
+    align-self: flex-end;
+    font-size: 1rem;
+    border: none;
+    border-radius: 50%;
+    padding: 0.5em 0.7em;
+    background-color: orangered;
+    color: white;
+    position: relative;
+    left: 1.5rem;
+    top: 1.1rem;
+}
+.create_blog_tag_place{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 @media only screen and (max-width:500px) {
     .create_blog_frame{

@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import '../styles/search.css'
-import { accessSearchData } from '../api/searchFetcher';
+//import { accessSearchData } from '../api/searchFetcher';
+import { useDispatch, useSelector } from 'react-redux';
+import { accessSearchData } from '../redux/api/searchApi';
 
 //add fontawesome cdn link for icons in index.html
 const Search = ({ searchResults,label }) => {
@@ -8,23 +10,17 @@ const Search = ({ searchResults,label }) => {
     name:'',
     _id:''
   });
-  const [access, setAccess] = useState(true);
-  const [searchData, setSearchData] = useState([]);
+
+  const searchData = useSelector(state => state.searchplace);
+  const searchDispatch = useDispatch();
   const [openBox, setOpenBox] = useState(false);
-  const handleSearchInput = async (e) => {
+
+  const handleSearchInput = (e) => {
     setSearch(prev => ({...prev,name:e.target.value}));
     if(!openBox) setOpenBox(true);
-    if(access){
-      try {
-        let data = await accessSearchData();
-        console.log(data);
-        setSearchData(data);
-      } catch (err) {
-        console.log(`an error in fetching search results(search):${err}`);
-      }
-      setAccess(false);
-    }
+    if(searchData.length === 0) searchDispatch(accessSearchData());
   }
+
   return (
     <div className='search_frame'>
         <div className='search_box'>

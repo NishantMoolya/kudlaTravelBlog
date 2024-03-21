@@ -7,7 +7,8 @@ const upVoter = async (_id,voted) => {
             method:'PUT',
             headers:{
                 "Content-Type":"application/json"
-            }
+            },
+            credentials:'include'
         });
     } catch (err) {
         console.log(`enable to vote blog(upVoter):${err}`);

@@ -15,10 +15,10 @@ const Login = lazy(() => import('./Login'));
 
 const App = () => {
   const dispatch = useDispatch();
-  const userData = useSelector(state => state.user);
+  //const userData = useSelector(state => state.user);
   useEffect(() => {
     dispatch(authenticate());
-    console.log(userData);
+    //console.log(userData);
   },[]);
   return (
     <div>
