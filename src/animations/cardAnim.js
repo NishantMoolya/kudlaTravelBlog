@@ -30,20 +30,6 @@ const cardText = {
     }
 }
 
-const navLinks = {
-    start:{
-        opacity:0,
-        y:"-100vh"
-    },
-    end:{
-        opacity:0,
-        y:0,
-        transition:{
-            type:'spring',
-            duration:1,
-            delay:0.5
-        }
-    }
-}
 
-export { card,cardText,navLinks };
+
+export { card,cardText };
