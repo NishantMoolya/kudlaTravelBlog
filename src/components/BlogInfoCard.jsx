@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
 import person from '../assets/person1.png'
-import beach from '../assets/beach1.jpg'
 import '../styles/bloginfocard.css'
 import TagChip from './TagChip'
 import Badge from '@mui/material/Badge';

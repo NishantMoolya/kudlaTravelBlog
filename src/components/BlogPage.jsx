@@ -10,7 +10,7 @@ import { fetchBlogResults } from '../redux/api/searchApi'
 import { lazyBlogFetcher } from '../redux/api/LazyFetcherApi'
 import { NavLink } from 'react-router-dom'
 import { totalBlogsVoted } from '../api/upVoter'
-import { AnimatePresence, motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { route } from '../animations/routeAnim'
 
 const BlogPage = () => {

@@ -1,9 +1,6 @@
 import React from 'react'
 import HeroSection from './HeroSection'
 import '../styles/homepage.css'
-import Carousel from './Carousel'
-import BlogCarousel from './BlogCarousel'
-import temple from '../assets/j4.jpeg'
 import { motion } from 'framer-motion'
 import { route } from '../animations/routeAnim'
 

@@ -2,12 +2,12 @@ import React from 'react'
 import '../styles/blog.css'
 import beach from '../assets/beach1.jpg'
 import person from '../assets/person1.png'
-import { Badge, Button, Fab, IconButton } from '@mui/material'
-import { ArrowOutward, Favorite, LocationOn, RemoveRedEye } from '@mui/icons-material'
-import { blueGrey, grey } from '@mui/material/colors'
+import { Badge, Fab, IconButton } from '@mui/material'
+import { ArrowOutward, Favorite, LocationOn } from '@mui/icons-material'
+import { grey } from '@mui/material/colors'
 import { NavLink } from 'react-router-dom'
 
-const Blog = ({ blogInfo }) => {
+const Blog = () => {
   return (
     <>
     <div className='blog_card'>

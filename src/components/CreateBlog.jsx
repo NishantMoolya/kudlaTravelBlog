@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react'
 import '../styles/createblog.css'
-import { blogCreator } from '../api/blogCreator';
+//import { blogCreator } from '../api/blogCreator';
 import TagChip from './TagChip'
 import { useDispatch, useSelector } from 'react-redux'
 import { accessSearchData } from '../redux/api/searchApi';

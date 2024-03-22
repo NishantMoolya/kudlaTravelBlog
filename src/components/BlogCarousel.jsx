@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import '../styles/blogcarousel.css'
 import Blog from './Blog'
-import { ArrowBackIos, ArrowForwardIos } from '@mui/icons-material';
 
 const BlogCarousel = () => {
   const containerRef = useRef();

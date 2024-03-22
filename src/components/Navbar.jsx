@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom'
 import '../styles/navbar.css'
 import { useSelector } from 'react-redux';
 import { motion } from 'framer-motion';
-import { navLinks } from '../animations/cardAnim';
 
 const Navbar = () => {
   const auth = useSelector(state => state.user.auth);

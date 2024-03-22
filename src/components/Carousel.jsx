@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import PlaceCard from './PlaceCard'
-import placesInfo from '../data/placeInfo'
+//import placesInfo from '../data/placeInfo'
 import '../styles/carousel.css'
 
 const Carousel = () => {

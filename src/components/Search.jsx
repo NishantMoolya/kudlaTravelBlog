@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import '../styles/search.css'
-//import { accessSearchData } from '../api/searchFetcher';
 import { useDispatch, useSelector } from 'react-redux';
 import { accessSearchData } from '../redux/api/searchApi';
 
