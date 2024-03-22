@@ -6,7 +6,7 @@
 .navbar{
     display: flex;
     align-items: center;
-    padding:1rem;
+    padding:0.8rem;
     justify-content: space-between;
     position: absolute;
     width: 100%;
@@ -39,12 +39,10 @@
     border-radius: 1em;
 }
 .active{
-    /* color: var(--white); */
     background-color: var(--white);
     color: var(--theme-color);
 }
 .link:hover{
-    /* background-color: var(--light-black); */
     background-color: var(--white);
 }
 #blogs{
@@ -55,6 +53,18 @@
 #blogs:hover{
     background-color: var(--white);
     color: var(--theme-color);
+}
+.dark_mode_btn{
+    background-color: transparent;
+    border: none;
+    color: var(--theme-color);
+    font-size: 1.2rem;
+    border-radius: 50%;
+    padding: 0.3em 0.5em;
+}
+.dark_mode_btn:hover{
+    color: white;
+    background-color: var(--theme-color);
 }
 @media only screen and (max-width:550px) {
    .nav_links{

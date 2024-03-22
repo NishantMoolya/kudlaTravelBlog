@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from 'react'
 import person from '../assets/person1.png'
 import '../styles/bloginfocard.css'
 import TagChip from './TagChip'
-import Badge from '@mui/material/Badge';
 import { upVoter } from '../api/upVoter'
 import { voteChecker } from '../helpers/voteChecker'
 import { useNavigate } from 'react-router-dom'
@@ -59,11 +58,12 @@ const BlogInfoCard = ({ blog,auth,totalBlogsVoted }) => {
               <motion.h6 variants={cardText} initial="start" animate="end">{blog.author}</motion.h6>
               <motion.p variants={cardText} initial="start" animate="end">{new Date(blog.date).toDateString()}</motion.p>
             </div>
-            <Badge badgeContent={upvote.voteCount} sx={{ marginLeft:'auto',marginRight:'1.2rem'}} color='warning'>
+              <div className='blog_info_card_voting_block'>
             {
-              !upvote.voted?<i className="fa-regular fa-thumbs-up" id='blog_vote_up' style={{alignSelf:'auto',fontSize:'1.5rem'}} onClick={() => handleVoting()}></i>
-              :<i className="fa-solid fa-thumbs-up" id='blog_vote_up' style={{alignSelf:'auto',fontSize:'1.5rem',color:'orange'}} onClick={() => handleVoting()}></i>}
-              </Badge>
+              !upvote.voted?<i className="fa-regular fa-thumbs-up" id='blog_vote_up' onClick={() => handleVoting()}></i>
+              :<i className="fa-solid fa-thumbs-up" id='blog_vote_up' onClick={() => handleVoting()}></i>}
+              <div className='blog_vote_badge'>{upvote.voteCount}</div>
+              </div>
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>

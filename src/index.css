@@ -6,9 +6,21 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
+  transition: all 0.5s linear;
 }
 :root{
-  --theme-color:#F86F03;
-  /* --theme-color:#0D1282; */
-  ;
+  --light-mode:#F86F03;
+  --dark-mode:#ec407a;
+  /* dont touch this(below) */
+  --theme-color:var(--light-mode);  
+  --theme-icon-color:black;
+  --theme-text-color:#616161;
+  --theme-heading-color:black;
+}
+[theme-mode="dark"]{
+  --theme-color:var(--dark-mode);
+  --theme-icon-color:var(--dark-mode);
+  --theme-heading-color:white;
+  --theme-text-color:white;
+  background-color: #111419;
 }

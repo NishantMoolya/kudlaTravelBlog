@@ -54,7 +54,8 @@
     /* font-family: "Playfair Display", serif; */
     font-family: "Ubuntu", sans-serif;
     font-weight: 500;
-    color: #616161;
+    /* color: #616161; */
+    color: var(--theme-text-color);
 }
 .place_info_card_div_2 > ul{
     padding-top: 0.5rem;
@@ -67,7 +68,8 @@
 .place_info_card_div_2 > .place_info_card_div_2_content > p{
     font-size: 1.1rem;
     word-wrap: break-word;
-    color: #616161;
+    /* color: #616161; */
+    color: var(--theme-text-color);
     line-height: 1.5em;
     scroll-behavior: smooth;
     overflow: hidden;

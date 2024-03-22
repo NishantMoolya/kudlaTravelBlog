@@ -28,6 +28,7 @@
 .login_input_frames > i{
     padding-inline: 0.5em;
     width: 36px;
+    color: var(--theme-icon-color);
 }
 .login_inputs{
     padding: 0.5em;
@@ -36,6 +37,7 @@
     border: none;
     border-left: 1px solid var(--theme-color);
     flex: 1;
+    background-color: var(--theme-background);
 }
 .login_inputs::placeholder{
     color: var(--theme-color);

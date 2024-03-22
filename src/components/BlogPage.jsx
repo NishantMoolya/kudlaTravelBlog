@@ -64,13 +64,9 @@ const BlogPage = () => {
       </div>
     </div>
     </motion.div>
-    <div className='create_blog_btn'>
-      <NavLink to='/user/create'>
-      <Fab color='warning'>
-        <EditNote />
-      </Fab>
+      <NavLink className='create_blog_btn' to='/user/create'>
+      <i class="fa-solid fa-pen-to-square"></i>
       </NavLink>
-    </div>
     </>
   )
 }

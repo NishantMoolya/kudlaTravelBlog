@@ -23,7 +23,7 @@
     padding: 0.5rem 1rem;
     display: flex;
     gap: 1rem;
-    border-bottom: 1px solid grey;
+    border-bottom: 1px solid var(--theme-text-color);
     flex-wrap: wrap;
 }
 .div_1 > p{
@@ -31,6 +31,7 @@
     font-size: 1rem;
     font-weight: 500;
     text-transform: capitalize;
+    color: var(--theme-heading-color);
 }
 .div_1{
     position: relative;
@@ -43,7 +44,7 @@
     display: flex;
     gap: 1rem;
     padding: 1rem;
-    border-left: 1px solid grey;
+    border-left: 1px solid var(--theme-text-color);
     flex-wrap: wrap;
 }
 .profile_blogs_section{
@@ -52,16 +53,17 @@
     justify-content: center;
     flex-direction: column;
     width: 8rem;
-    border: 1px solid grey;
+    border: 1px solid var(--theme-text-color);
     border-radius: 0.2em;
 }
 .blog_text{
-    color: grey;
+    color: var(--theme-text-color);
 }
 .blog_count{
     text-align: center;
     font-size: 1.5rem;
     font-weight: 500;
+    color: var(--theme-heading-color);
 }
 .blog_icon{
     font-size: 1.1rem;
@@ -93,7 +95,7 @@
     }
     .div_2{
         justify-content: center;
-        border-top: 1px solid grey;
+        border-top: 1px solid var(--theme-text-color);
         border-left: 0;
     }
 }
