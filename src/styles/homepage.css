@@ -13,7 +13,7 @@
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    background-color: rebeccapurple;
+    background-color: var(--theme-color);
 }
 .home_page_sec_part{
     display: flex;

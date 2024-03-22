@@ -8,14 +8,14 @@
     align-items: center;
     justify-content: center;
     font-size: 0.8rem;
-    padding: 0.1em 0.6em;
-    background-color: #fff3e0;
-    border: 1px solid #ff9800;
+    padding: 0.4em 0.8em;
+    /* background-color: #fff3e0; */
+    border: 1px solid var(--theme-color);
     border-radius: 1em;
 }
 .chip_frame > p{
     display: inline;
     text-transform: capitalize;
-    color: #ff9800;
+    color: var(--theme-color);
     text-align: center;
 }

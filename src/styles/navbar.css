@@ -1,5 +1,5 @@
 :root{
-    --orange:orange;
+    --orange:var(--theme-color);
     --white:white;
     --light-black:rgba(0, 0, 0,0.2);
 }
@@ -13,7 +13,6 @@
     top: 0;
     left: 0;
     color: var(--white);
-    /* box-shadow: 0px 0px 4px black; */
     backdrop-filter: blur(5px);
 }
 .logo{
@@ -34,26 +33,28 @@
 }
 .link{
     text-decoration: none;
-    color: var(--orange);
-    font-size: 1.1rem; 
+    color: var(--theme-color);
+    font-size: 1.1rem;
     padding: 0.2em 0.8em;
     border-radius: 1em;
 }
 .active{
-    color: var(--white);
-    background-color: var(--light-black);
+    /* color: var(--white); */
+    background-color: var(--white);
+    color: var(--theme-color);
 }
 .link:hover{
-    background-color: var(--light-black);
+    /* background-color: var(--light-black); */
+    background-color: var(--white);
 }
 #blogs{
-    background-color: var(--orange);
+    background-color: var(--theme-color);
     border-radius: 1rem;
     color: var(--white);
 }
 #blogs:hover{
     background-color: var(--white);
-    color: var(--orange);
+    color: var(--theme-color);
 }
 @media only screen and (max-width:550px) {
    .nav_links{

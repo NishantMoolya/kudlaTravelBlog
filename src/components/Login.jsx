@@ -4,6 +4,8 @@ import { Visibility, VisibilityOff } from '@mui/icons-material'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { login } from '../redux/reducers/userReducer'
+import { motion } from 'framer-motion'
+import { route } from '../animations/routeAnim'
 
 const Login = () => {
   const navigate = useNavigate();
@@ -61,7 +63,7 @@ const Login = () => {
   }
   document.title = "Login-Welcome Back to Kudla";
   return (
-    <>
+    <motion.div variants={route} initial="start" animate="end" exit="exit">
     {!auth && <Box display={'flex'} justifyContent={'center'} alignItems={'center'} height={'100vh'}>
         <Paper sx={{p:2,maxWidth:"300px"}}>
           <form method='POST' onSubmit={handleLogin}>
@@ -85,7 +87,7 @@ const Login = () => {
          </form>
          </Paper>
     </Box>}
-  </>
+  </motion.div>
   )
 }
 

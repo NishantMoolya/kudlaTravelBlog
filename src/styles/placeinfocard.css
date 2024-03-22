@@ -40,7 +40,7 @@
     font-style: normal;
     text-transform: capitalize;
     word-wrap: break-word;
-    background-color: orange;
+    background-color: var(--theme-color);
     color: white;
     padding: 0.3rem;
     border-top-left-radius: 0.5rem;
@@ -93,12 +93,12 @@
     align-self: flex-start;
     /* backdrop-filter: blur(1px); */
     text-transform: capitalize;
-    color: #ff9800;
+    color: var(--theme-color);
     background-color: white;
     font-size: 1rem;
     padding: 0.2em 0.5em;
     border-radius: 0.2em;
-    border: 1px solid #ff9800;
+    border: 1px solid var(--theme-color);
 }
 @media only screen and (max-width:500px){
     .place_info_card_content{

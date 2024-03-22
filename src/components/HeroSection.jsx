@@ -1,7 +1,5 @@
-import { Button, Divider, Typography } from '@mui/material'
 import React, { useEffect, useLayoutEffect, useState } from 'react'
 import '../styles/herosection.css'
-import Search from './Search'
 import beach1 from "../assets/beach1.jpg"
 import hotel from '../assets/hotel.jpg'
 import beach2 from '../assets/Panambur-Beach.jpg'
@@ -23,10 +21,10 @@ const HeroSection = () => {
   },[imageCounter]);
   return (
     <>
-    <div className='hero_frame' style={{backgroundImage:`url(${imageList[1]})`}}>
+    <div className='hero_frame' style={{backgroundImage:`url(${imageList[imageCounter]})`}}>
       <div className='hero_content_holder'>
       <div className='hero_image'>
-        <img src={imageList[1]} alt="" loading='lazy' />
+        <img src={imageList[imageCounter]} alt="" loading='lazy' />
       </div>
       <div className='hero_content'>
       <div className='hero_intro_content'>

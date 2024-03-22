@@ -27,7 +27,7 @@ const userSlice = createSlice({
             state.auth = action.payload.authenticate;
           })
           .addCase(authenticate.rejected, (state, action) => {
-            state.auth = action.payload.authenticate;
+            state.auth = false;
           });
 
           builder.addCase(userLogout.fulfilled, (state, action) => {

@@ -7,6 +7,8 @@ import Badge from '@mui/material/Badge';
 import { upVoter } from '../api/upVoter'
 import { voteChecker } from '../helpers/voteChecker'
 import { useNavigate } from 'react-router-dom'
+import { motion } from 'framer-motion'
+import { card, cardText } from '../animations/cardAnim'
 
 const BlogInfoCard = ({ blog,auth,totalBlogsVoted }) => {
   const [readMore, setReadMore] = useState({
@@ -45,18 +47,18 @@ const BlogInfoCard = ({ blog,auth,totalBlogsVoted }) => {
   }
 
   return (
-    <div className='blog_info_card_frame'>
+    <motion.div className='blog_info_card_frame' variants={card} initial="start" animate="end" >
       <div className='blog_info_card_header'>
         <h4>{blog.title}</h4>
       </div>
       <div className='blog_info_card_midsection'>
-        <img className='blog_info_card_img' src={blog.image} alt={blog.placetag} />
+        <motion.img className='blog_info_card_img' src={blog.image} alt={blog.placetag} variants={cardText} initial="start" animate="end"  />
         <div className='blog_info_card_content'>
           <div className='blog_info_card_header'>
             <img src={person} alt={`${blog.author}`} />
             <div className='blog_info_card_details'>
-              <h6>{blog.author}</h6>
-              <p>{new Date(blog.date).toDateString()}</p>
+              <motion.h6 variants={cardText} initial="start" animate="end">{blog.author}</motion.h6>
+              <motion.p variants={cardText} initial="start" animate="end">{new Date(blog.date).toDateString()}</motion.p>
             </div>
             <Badge badgeContent={upvote.voteCount} sx={{ marginLeft:'auto',marginRight:'1.2rem'}} color='warning'>
             {
@@ -66,13 +68,13 @@ const BlogInfoCard = ({ blog,auth,totalBlogsVoted }) => {
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
-            <TagChip name={blog.placetag} />
+            <TagChip variants={cardText} initial="start" animate="end" name={blog.placetag} />
           </div>
-          <p style={readMore.expand ? height : null} ref={contentRef}>{blog.content}</p>
-          {readMore.showBtn && <span id='blog_info_card_readmore' onClick={() => viewFullBlog()}>{readMore.expand ? 'read less' : 'read more'}</span>}
+          <motion.p style={readMore.expand ? height : null} ref={contentRef} variants={cardText} initial="start" animate="end">{blog.content}</motion.p>
+          {readMore.showBtn && <motion.span id='blog_info_card_readmore' onClick={() => viewFullBlog()} variants={cardText} initial="start" animate="end" >{readMore.expand ? 'read less' : 'read more'}</motion.span>}
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
 

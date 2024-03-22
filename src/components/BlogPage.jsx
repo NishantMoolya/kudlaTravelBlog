@@ -10,6 +10,8 @@ import { fetchBlogResults } from '../redux/api/searchApi'
 import { lazyBlogFetcher } from '../redux/api/LazyFetcherApi'
 import { NavLink } from 'react-router-dom'
 import { totalBlogsVoted } from '../api/upVoter'
+import { AnimatePresence, motion } from 'framer-motion'
+import { route } from '../animations/routeAnim'
 
 const BlogPage = () => {
   const blogInfoRef = useRef();
@@ -42,7 +44,7 @@ const BlogPage = () => {
   document.title = "Blogs-Namma Kudla";
   return (
     <>
-    <div className='blog_page_frame'>
+    <motion.div variants={route} initial="start" animate="end" exit="exit" className='blog_page_frame'>
       <div className='blog_page_search'>
       <Search searchResults={searchResults} label={'search blogs...'} />
       </div>
@@ -61,7 +63,7 @@ const BlogPage = () => {
         {!canScroll?"Reached the end no more blogs avaliable":isLoading && <Loader />}
       </div>
     </div>
-    </div>
+    </motion.div>
     <div className='create_blog_btn'>
       <NavLink to='/user/create'>
       <Fab color='warning'>

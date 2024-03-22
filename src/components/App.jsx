@@ -1,9 +1,10 @@
 import React, { Suspense, lazy } from 'react'
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, useLocation } from 'react-router-dom'
 import HomePage from './HomePage'
 import Spinner from './Spinner'
 import PrivateRoute from './PrivateRoute'
 import Layout from './Layout'
+import { AnimatePresence } from 'framer-motion'
 const ErrorPage = lazy(() => import('./ErrorPage'));
 const Profile = lazy(() => import('./Profile'));
 const CreateBlog = lazy(() => import('./CreateBlog'));
@@ -13,9 +14,11 @@ const Signup = lazy(() => import('./Signup'));
 const Login = lazy(() => import('./Login'));
 
 const App = () => {
+  const location = useLocation();
   return (
     <div>
-      <Routes>
+      <AnimatePresence mode='wait'>
+      <Routes location={location} key={location.pathname}>
         <Route path='/' element={<Layout />}>
           <Route index element={<HomePage />} />
           <Route path='blogs' element={<Suspense fallback={<Spinner />}><BlogPage /></Suspense>} />
@@ -29,6 +32,7 @@ const App = () => {
         </Route>
         <Route path='*' element={<Suspense fallback={<Spinner />}><ErrorPage /></Suspense>} />
       </Routes>
+      </AnimatePresence>
     </div>
   )
 }

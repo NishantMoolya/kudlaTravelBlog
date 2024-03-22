@@ -3,6 +3,8 @@ import { Box, Button, IconButton, InputAdornment, OutlinedInput, Paper, Stack, T
 import { Visibility, VisibilityOff } from '@mui/icons-material'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import { motion } from 'framer-motion'
+import { route } from '../animations/routeAnim'
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -57,7 +59,7 @@ const Signup = () => {
   }
   document.title = "Signup-Join the blogging community";
   return (
-  <>
+  <motion.div variants={route} initial="start" animate="end" exit="exit">
     {!auth && <Box display={'flex'} justifyContent={'center'} alignItems={'center'} height={'100vh'}>
         <Paper sx={{p:2,maxWidth:"300px"}}>
           <form method='POST' onSubmit={handleSignup}>
@@ -82,7 +84,7 @@ const Signup = () => {
          </form>
          </Paper>
     </Box>}
-  </>
+  </motion.div>
 
   )
 }

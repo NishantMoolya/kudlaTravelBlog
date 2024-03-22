@@ -1,12 +1,99 @@
 .profile_frame{
     display: flex;
-    align-items: center;
     flex-direction: column;
     margin-top: 63px;
     padding-inline: 3vmax;
 }
 .profile_avatar{
-    height: 4rem;
-    width: 4rem;
+    height: 5rem;
+    width: 5rem;
     border-radius: 50%;
+    border: 4px solid white;
+    background: var(--theme-color);
+}
+.profile_banner{
+    height: 40vmin;
+    width: 100%;
+    background-image: url('../assets/beach1.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.profile_content{
+    padding: 0.5rem 1rem;
+    display: flex;
+    gap: 1rem;
+    border-bottom: 1px solid grey;
+    flex-wrap: wrap;
+}
+.div_1 > p{
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+.div_1{
+    position: relative;
+    top: -20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.div_2{
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    border-left: 1px solid grey;
+    flex-wrap: wrap;
+}
+.profile_blogs_section{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 8rem;
+    border: 1px solid grey;
+    border-radius: 0.2em;
+}
+.blog_text{
+    color: grey;
+}
+.blog_count{
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+.blog_icon{
+    font-size: 1.1rem;
+    color: var(--theme-color);
+}
+.profile_logout_btn{
+    font-size: 0.9rem;
+    padding: 0.5em 0.8em;
+    border: none;
+    background-color: var(--theme-color);
+    color: white;
+    border-radius: 0.2em;
+    cursor: pointer;
+    text-transform: capitalize;
+    align-self: flex-start;
+    margin-top: 1rem;
+}
+.profile_logout_btn > span{
+    margin-right: 0.3em;
+}
+@media only screen and (max-width:500px) {
+    .profile_frame{
+        padding-inline: 0;
+        align-items: center;
+    }
+    .profile_content{
+        align-self: center;
+        justify-content: center;
+    }
+    .div_2{
+        justify-content: center;
+        border-top: 1px solid grey;
+        border-left: 0;
+    }
 }

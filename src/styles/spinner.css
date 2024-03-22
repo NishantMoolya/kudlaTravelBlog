@@ -1,7 +1,7 @@
 .loader {
     width: 40px;
     height: 20px;
-    background: orange;
+    background: var(--theme-color);
     position: relative;
     animation: l9-0 1.5s infinite linear;
   }

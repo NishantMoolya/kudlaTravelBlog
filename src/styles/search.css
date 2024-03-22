@@ -13,13 +13,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    /* flex-direction: column; */
     width: 80%;
     position: relative;
     background-color: white;
-    border: 1px solid orange;
+    border: 1px solid var(--theme-color);
     border-radius: 1.5rem;
-    /* box-shadow: 0px 0px 3px orange; */
 }
 .suggestions{
     list-style-type: none;
@@ -62,14 +60,11 @@
 .search_box{
     display: flex;
     align-items: center;
-    /* background-color: var(--search_box); */
     background: transparent;
-    /* width: 100%; */
     flex: 1;
     gap: 1%;
     justify-content: space-between;
     border-radius: 1.5rem;
-    /* padding: 0.5rem 1rem; */
     padding-block: 0.5rem;
     padding-left: 1rem;
     padding-right: 0.5rem;
@@ -82,9 +77,8 @@
     font-size: 1rem;
     height: 3rem;
     width: 3rem;
-    /* padding: 0.3em; */
     border-radius: 50%;
-    background-color: orange;
+    background-color: var(--theme-color);
     color: white;
     border: none;
 }

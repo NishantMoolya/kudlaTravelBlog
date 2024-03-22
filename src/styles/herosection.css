@@ -75,11 +75,11 @@
 }
 .explore_btn{
     margin-top: 1.5rem;
-    border: 2px solid orange;
+    border: 2px solid var(--theme-color);
     font-size: 1rem;
     padding: 0.5em 1em;
     /* border-radius: 0.5em; */
-    color: orange;
+    color: var(--theme-color);
     background-color: rgba(255, 255, 255,0.3);
     /* background:white; */
     /* box-shadow: 0px 1px 5px black; */

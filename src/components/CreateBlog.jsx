@@ -5,6 +5,8 @@ import TagChip from './TagChip'
 import { useDispatch, useSelector } from 'react-redux'
 import { accessSearchData } from '../redux/api/searchApi';
 import Loader from './Loader';
+import { motion } from 'framer-motion'
+import { route } from '../animations/routeAnim'
 
 const CreateBlog = () => {
   const blogRef = useRef(null);
@@ -57,7 +59,7 @@ const CreateBlog = () => {
   document.title = "Blog-Share your stories";
   return (
     <>
-    <div className='create_blog_frame'>
+    <motion.div variants={route} initial="start" animate="end" exit="exit" className='create_blog_frame'>
         <form ref={blogRef} defaultValue={""} className='create_blog_form' method='post' encType={'multipart/form-data'} onSubmit={(e) => handleSubmit(e)}>
             <textarea  name="title" id='create_blog_title' placeholder='title' rows='1' required />
             <div className='create_blog_tag_place'>
@@ -76,7 +78,7 @@ const CreateBlog = () => {
             <button type="submit" id='post_btn'>post</button>
             </div>
         </form>
-    </div>
+    </motion.div>
     
         {openModal && <div className='create_blog_modal'>
               <div className='search_places_frame'>

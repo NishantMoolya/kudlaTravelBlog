@@ -11,6 +11,8 @@ import Loader from './Loader'
 import { lazyPlaceFetcher } from '../redux/api/LazyFetcherApi'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchPlaceResults } from '../redux/api/searchApi'
+import { motion } from 'framer-motion'
+import { route } from '../animations/routeAnim'
 
 const PlacesPage = () => {
   const placeInfoRef = useRef(null);
@@ -36,7 +38,7 @@ const PlacesPage = () => {
 
   document.title = "Places-Namma Kudla";
   return (
-    <div className='place_page_frame'>
+    <motion.div variants={route} initial="start" animate="end" exit="exit" className='place_page_frame'>
       <div className='place_page_searchbar'>
         <Search searchResults={searchResults} label={'search places...'} />
       </div>
@@ -55,7 +57,7 @@ const PlacesPage = () => {
         {!canScroll?"Reached the end no more places avaliable":isLoading && <Loader />}
       </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
 
