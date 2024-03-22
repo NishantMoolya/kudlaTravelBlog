@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { Box, Button, IconButton, InputAdornment, OutlinedInput, Paper, Stack, TextField, Typography } from '@mui/material'
-import { Visibility, VisibilityOff } from '@mui/icons-material'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { login } from '../redux/reducers/userReducer'
 import { motion } from 'framer-motion'
 import { route } from '../animations/routeAnim'
+import '../styles/login.css'
 
 const Login = () => {
   const navigate = useNavigate();
@@ -63,30 +62,22 @@ const Login = () => {
   }
   document.title = "Login-Welcome Back to Kudla";
   return (
-    <motion.div variants={route} initial="start" animate="end" exit="exit">
-    {!auth && <Box display={'flex'} justifyContent={'center'} alignItems={'center'} height={'100vh'}>
-        <Paper sx={{p:2,maxWidth:"300px"}}>
-          <form method='POST' onSubmit={handleLogin}>
-        <Stack spacing={2}>
-           <Typography variant='h6' textAlign={'center'}>Login</Typography>
-           <TextField variant='outlined' placeholder='Email' autoComplete="true" name='email' value={formData.email} onChange={handleUserInput} required />
-           <OutlinedInput variant='outlined' type={pass?'password':'text'} autoComplete="true"
-            endAdornment={
-              <InputAdornment position="end">
-                <IconButton
-                  onClick={() => setPass(!pass)}
-                  edge="end"
-                  >
-                  {pass ? <VisibilityOff /> : <Visibility />}
-                </IconButton>
-              </InputAdornment>
-            } placeholder='Password' name='password' value={formData.password} onChange={handleUserInput} required />
-           <Button variant='contained' type='submit' >Login</Button>
-           <Typography variant='body2' textAlign={'center'}>Don't have an account?<NavLink to='/signup'>Signup</NavLink></Typography>
-         </Stack>
-         </form>
-         </Paper>
-    </Box>}
+    <motion.div className='login_frame' variants={route} initial="start" animate="end" exit="exit">
+    {!auth &&
+          <form className='login_form' method='POST' onSubmit={handleLogin}>
+           <h4>Login</h4>
+           <div className='login_input_frames'>
+           <i className="fa-solid fa-envelope"></i>
+           <input className='login_inputs' type='text' placeholder='Email' autoComplete="true" name='email' value={formData.email} onChange={handleUserInput} required />
+           </div>
+           <div className='login_input_frames'>
+           <i className="fa-solid fa-key"></i>
+           <input className='login_inputs' type={pass?'password':'text'} autoComplete="true" placeholder='Password' name='password' value={formData.password} onChange={handleUserInput} required />
+           {pass?<i className="fa-solid fa-eye-slash" onClick={() => setPass(false)}></i>:<i className="fa-solid fa-eye" onClick={() => setPass(true)}></i>}
+           </div>
+           <button className='login_btn' type='submit' >Login</button>
+           <p>Don't have an account?<NavLink className="login_signup_link" to='/signup'>Signup</NavLink></p>
+         </form>}
   </motion.div>
   )
 }

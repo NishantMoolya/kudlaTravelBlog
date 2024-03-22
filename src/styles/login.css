@@ -1,0 +1,69 @@
+.login_frame{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 10rem;
+}
+.login_form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+    box-shadow: 0px 0px 5px grey;
+    padding: 1rem;
+    border-radius: 0.2rem;
+}
+.login_form > h4{
+    text-align: center;
+    color: var(--theme-color);
+    font-size: 1.5rem;
+}
+.login_input_frames{
+    border: 1px solid var(--theme-color);
+    border-radius: 0.2em;
+    display: flex;
+    align-items: center;
+}
+.login_input_frames > i{
+    padding-inline: 0.5em;
+    width: 36px;
+}
+.login_inputs{
+    padding: 0.5em;
+    font-size: 1rem;
+    outline: none;
+    border: none;
+    border-left: 1px solid var(--theme-color);
+    flex: 1;
+}
+.login_inputs::placeholder{
+    color: var(--theme-color);
+}
+.login_form > p{
+    color: grey;
+    text-align: center;
+}
+.login_signup_link{
+    text-decoration: none;
+    color: var(--theme-color);
+}
+.login_btn{
+    font-size: 1rem;
+    padding: 0.5em 1em;
+    outline: none;
+    border: none;
+    border-radius: 0.2em;
+    color: white;
+    background-color: var(--theme-color);
+    text-transform: capitalize;
+}
+.login_btn:hover{
+    background-color: var(--theme-color);
+    transform: scale(0.95);
+}
+@media only screen and (max-width:340px) {
+    .login_inputs{
+        width: 10rem;
+    }
+}

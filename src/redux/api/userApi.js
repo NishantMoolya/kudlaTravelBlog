@@ -12,6 +12,7 @@ const authenticate = createAsyncThunk("authUser", async () => {
         return await res.json();
     } catch (err) {
         console.log(`an error in authenticating user:${err}`);
+        return {authenticate:false};
     }
 });
 
