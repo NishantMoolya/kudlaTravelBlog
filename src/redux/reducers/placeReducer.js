@@ -7,7 +7,8 @@ const placeSlice = createSlice({
     initialState:{
         data:[],
         isLoading:false,
-        canScroll:true
+        canScroll:true,
+        page:1
     },
     extraReducers:(builder) => {
         builder
@@ -15,8 +16,9 @@ const placeSlice = createSlice({
             state.isLoading = true;
         })
         .addCase(lazyPlaceFetcher.fulfilled, (state,action) => {
+            const { page } = state;
             if(action.payload.length === 0) return {...state,canScroll:false,isLoading:false}
-            else return {...state,data:[...state.data,...action.payload],isLoading:false}
+            else return {...state,data:[...state.data,...action.payload],isLoading:false,page:page+1}
         })
         .addCase(lazyPlaceFetcher.rejected, (state,action) => {
             state.isLoading = true;
@@ -28,5 +30,5 @@ const placeSlice = createSlice({
     }
 });
 
-// export const {} = placeSlice.actions;
+//export const {} = placeSlice.actions;
 export default placeSlice.reducer;

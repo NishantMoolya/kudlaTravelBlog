@@ -7,7 +7,8 @@ const blogSlice = createSlice({
     initialState:{
         data:[],
         isLoading:false,
-        canScroll:true
+        canScroll:true,
+        page:1
     },
     extraReducers:(builder) => {
         builder
@@ -15,8 +16,9 @@ const blogSlice = createSlice({
             state.isLoading = true;
         })
         .addCase(lazyBlogFetcher.fulfilled, (state,action) => {
+            const { page } = state;
             if(action.payload.length === 0) return {...state,canScroll:false,isLoading:false}
-            else return {...state,data:[...state.data,...action.payload],isLoading:false}
+            else return {...state,data:[...state.data,...action.payload],isLoading:false,page:page+1}
         })
         .addCase(lazyBlogFetcher.rejected, (state,action) => {
             state.isLoading = true;

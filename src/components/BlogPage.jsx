@@ -1,8 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import '../styles/blogpage.css'
 import BlogInfoCard from './BlogInfoCard'
-import { Fab } from '@mui/material'
-import { EditNote } from '@mui/icons-material'
 import Search from './Search'
 import Loader from './Loader'
 import { useDispatch, useSelector } from 'react-redux'
@@ -15,18 +13,19 @@ import { route } from '../animations/routeAnim'
 
 const BlogPage = () => {
   const blogInfoRef = useRef();
-  const [page,setPage] = useState(1);
   const [totalVotes,setTotalVotes] = useState([]);
 
   const canScroll = useSelector(state => state.blogInfos.canScroll);
   const isLoading = useSelector(state => state.blogInfos.isLoading);
   const blogInfos = useSelector(state => state.blogInfos.data);
   const auth = useSelector(state => state.user.auth);
+  const page = useSelector(state => state.blogInfos.page);
   
   const lazyDispatch = useDispatch();
+
   useEffect(() => {
-    lazyDispatch(lazyBlogFetcher(page));
-  },[page]);
+    if(blogInfos.length === 0) lazyDispatch(lazyBlogFetcher(page));
+  },[]);
   
   useEffect(() => {
     totalBlogsVoted().then(data => setTotalVotes(data));
@@ -36,7 +35,7 @@ const BlogPage = () => {
 
   const handleScroll = () => {
     if(blogInfoRef.current.clientHeight + blogInfoRef.current.scrollTop+1 >= blogInfoRef.current.scrollHeight){
-      if(canScroll) setPage(prev => prev+1);
+      if(canScroll) lazyDispatch(lazyBlogFetcher(page));
     }
   }
   

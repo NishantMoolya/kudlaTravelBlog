@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef } from 'react'
 import '../styles/placespage.css'
 //import placesInfo from '../data/placeInfo'
 import { Divider } from '@mui/material'
@@ -16,23 +16,23 @@ import { route } from '../animations/routeAnim'
 
 const PlacesPage = () => {
   const placeInfoRef = useRef(null);
-  const [page,setPage] = useState(1);
 
   const placeInfos = useSelector(state => state.placeInfos.data);
   const canScroll = useSelector(state => state.placeInfos.canScroll);
   const isLoading = useSelector(state => state.placeInfos.isLoading);
+  const page = useSelector(state => state.placeInfos.page);
 
   const lazyDispatch = useDispatch();
 
   useEffect(() => {
-    lazyDispatch(lazyPlaceFetcher(page));
-  },[page]);
+    if(placeInfos.length === 0) lazyDispatch(lazyPlaceFetcher(page));
+  },[]);
   
   const searchResults = (_id) =>  lazyDispatch(fetchPlaceResults(_id));
 
   const handleScroll = () => {
     if(placeInfoRef.current.clientHeight + placeInfoRef.current.scrollTop+1 >= placeInfoRef.current.scrollHeight){
-      if(canScroll) setPage(prev => prev+1);
+      if(canScroll) lazyDispatch(lazyPlaceFetcher(page));
     }
   }
 

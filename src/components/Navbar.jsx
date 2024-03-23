@@ -32,14 +32,14 @@ const Navbar = () => {
         </>
         }
         <motion.li whileHover={{y:"4px"}} variants={link} initial="start" animate="end" exit="exit" transition={{delay:0.7}}><NavLink className='link' to='/blogs'  id='blogs'>Blogs</NavLink></motion.li>
-      <motion.button whileHover={{y:"4px"}} variants={link} initial="start" animate="end" exit="exit" transition={{delay:0.8}} className='dark_mode_btn' onClick={changeTheme}><i class="fa-solid fa-moon"></i></motion.button>
+      <motion.button whileHover={{y:"4px"}} variants={link} initial="start" animate="end" exit="exit" transition={{delay:0.8}} className='dark_mode_btn' onClick={changeTheme}><i className="fa-solid fa-moon"></i></motion.button>
   </>
 
   return (
     <nav className='navbar'>
     <div className='logo_holder'>
       <div className='logo'>Logo</div>
-      <motion.button whileTap={{ rotateZ:"360deg"}} className='hamburger_menu'onClick={() => setShowMenu(p => !p)}>{!showMenu?<i class="fa-solid fa-bars"></i>:<i class="fa-solid fa-square-xmark"></i>}</motion.button>
+      <motion.button whileTap={{ rotateZ:"360deg"}} className='hamburger_menu'onClick={() => setShowMenu(p => !p)}>{!showMenu?<i className="fa-solid fa-bars"></i>:<i className="fa-solid fa-square-xmark"></i>}</motion.button>
     </div>
       <AnimatePresence>
 
