@@ -5,7 +5,7 @@ const Places = ({ place }) => {
     <div className='place_card' style={{ backgroundImage:`url(${place?.img})`}}>
         <div className='place_content'>
             <h2>{place?.placeName}</h2>
-            <p>{place?.placeContent}</p>
+            <p>{place?.placeContent.substring(0,70)}...Read more</p>
         </div>
     </div>
   )
