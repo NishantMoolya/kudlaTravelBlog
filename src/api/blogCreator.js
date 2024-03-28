@@ -1,17 +1,19 @@
 const baseURL = process.env.REACT_APP_BASE_URL;
 
 
-const blogCreator = async (link,data) => {
-    const url = `${baseURL}${link}`;
+const blogCreator = async (data) => {
+    const url = `${baseURL}/blog/new`;
     const options = {
         method:"POST",
         body:data
     }
     try {
         const res = await fetch(url,options);
-        return await res.json();
+        return res;
     } catch (err) {
+        const res = {status:500};
         console.log(`enable to post blog data(blogCreator):${err}`);
+        return res;
     }
 };
 

@@ -1,12 +1,13 @@
 import React, { useRef, useState } from 'react'
 import '../styles/createblog.css'
-//import { blogCreator } from '../api/blogCreator';
+import { blogCreator } from '../api/blogCreator';
 import TagChip from './TagChip'
 import { useDispatch, useSelector } from 'react-redux'
 import { accessSearchData } from '../redux/api/searchApi';
 import Loader from './Loader';
-import { motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import { route } from '../animations/routeAnim'
+import { popup } from '../animations/popup';
 
 const CreateBlog = () => {
   const blogRef = useRef(null);
@@ -26,11 +27,16 @@ const CreateBlog = () => {
         blogInfo.append("avatar",user.avatar);
         blogInfo.append("placetag",place.name);
         blogInfo.append("placetag_id",place._id);
-        //const data = await blogCreator('/blog/new',blogInfo);
-        blogInfo.forEach((val,key) => console.log(key,val));
+        const data = await blogCreator(blogInfo);
         setImage(null);
         setPlace(null);
-        blogRef.current.reset();
+        //blogInfo.forEach((val,key) => console.log(key,val));
+        if(data.status === 201){
+          blogRef.current.reset();
+          alert("Blog created");
+        }else{
+          alert("An error in creating blog");
+        }
       }else{
         alert("Please include all details");
       }
@@ -66,7 +72,7 @@ const CreateBlog = () => {
               <div>
               {place && <TagChip name={place.name} />}
               </div>
-            <button className='create_blog_place_btn' onClick={handleTags}>add place tag</button>
+            <button className='create_blog_place_btn' onClick={handleTags}><i class="fa-solid fa-tag"></i>Tag</button>
             </div>
             <div className='create_blog_image_div'>
             <img src={image} alt="" srcset="" />
@@ -74,22 +80,24 @@ const CreateBlog = () => {
             </div>
             <textarea name="content" rows="10" id='create_blog_content' placeholder='write your experience about the place...' required />
             <div className='create_blog_btns'>
-            <button type='reset' id='cancel_btn'>cancel</button>
+            <button type='reset' onClick={() => setImage("")} id='cancel_btn'>cancel</button>
             <button type="submit" id='post_btn'>post</button>
             </div>
         </form>
     </motion.div>
-    
-        {openModal && <div className='create_blog_modal'>
-              <div className='search_places_frame'>
-                <button className='search_places_close_btn' onClick={() => setOpenModal(false)}><i className="fa-solid fa-xmark"></i></button>
+
+    <AnimatePresence>
+        {openModal && <div className='create_blog_modal' >
+              <motion.div className='search_places_frame' variants={popup} initial="start" animate="end" exit="exit">
+                <motion.button className='search_places_close_btn' onClick={() => setOpenModal(false)} whileHover={{scale:1.1}}><i className="fa-solid fa-xmark"></i></motion.button>
                 <ul className='search_places_list'>
                 {
-                  placeTags.length !== 0?placeTags.toSorted((a,b) => a.name.localeCompare(b.name))?.map((tag,ind) => (<li onClick={() => addTag(tag)} key={ind}>{tag.name}</li>)):<Loader />
+                  placeTags.length !== 0?placeTags.toSorted((a,b) => a.name.localeCompare(b.name))?.map((tag,ind) => (<li onClick={() => addTag(tag)} key={ind} >{tag.name}</li>)):<Loader />
                 }
                 </ul>
-              </div>
+              </motion.div>
           </div>}
+    </AnimatePresence>
     </>
   )
 }

@@ -37,7 +37,7 @@ const Signup = () => {
       }
     } catch (err) {
       console.log(`En error occurred in registering user:${err}`);
-      alert("An occurred in server");
+      alert("An error occurred in server");
     }
     setFormData(initialData);
   }

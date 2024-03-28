@@ -1,18 +1,15 @@
 import React, { useEffect, useRef } from 'react'
 import '../styles/placespage.css'
-//import placesInfo from '../data/placeInfo'
 import { Divider } from '@mui/material'
 import PlaceInfoCard from './PlaceInfoCard'
-//import placesGuide from '../data/placesGuide'
 import Search from './Search'
-//import { fetchResults } from '../api/searchFetcher'
-//import { lazyFetcher } from '../api/lazyFetcher'
 import Loader from './Loader'
 import { lazyPlaceFetcher } from '../redux/api/LazyFetcherApi'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchPlaceResults } from '../redux/api/searchApi'
 import { motion } from 'framer-motion'
 import { route } from '../animations/routeAnim'
+import noInternet from '../assets/noInternet.png'
 
 const PlacesPage = () => {
   const placeInfoRef = useRef(null);
@@ -44,7 +41,7 @@ const PlacesPage = () => {
       </div>
       <div>
       <div className='place_page_info' ref={placeInfoRef} onScroll={() => handleScroll()} >
-      {placeInfos.length === 0?<Loader />:null}
+      {placeInfos.length === 0?isLoading?<Loader />:<img src={noInternet} alt='no internet' style={{alignSelf:"center",height:"15rem",minWidth:"10rem"}} />:null}
         {
           placeInfos?.map((place,ind) => (<>
           <PlaceInfoCard key={ind} place={place} />
@@ -53,8 +50,8 @@ const PlacesPage = () => {
           ))
         }
       </div>
-      <div style={{ display:'flex',alignItems:'center',justifyContent:'center'}}>
-        {!canScroll?"Reached the end no more places avaliable":isLoading && <Loader />}
+      <div style={{ display:'flex',alignItems:'center',justifyContent:'center',color:"var(--theme-color)"}}>
+        {!canScroll?"No more places avaliable":isLoading && <Loader />}
       </div>
       </div>
     </motion.div>

@@ -56,7 +56,7 @@ const Login = () => {
       }
     } catch (err) {
       console.log(`An error occurred in login user:${err}`);
-      alert("An occurred in server");
+      alert("An error occurred in server");
     }
     setFormData(initialData);
   }

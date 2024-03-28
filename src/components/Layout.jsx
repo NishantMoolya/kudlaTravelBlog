@@ -12,11 +12,13 @@ const Layout = () => {
   }, []);
   
   return (
-    <>
+    <div style={{ minHeight:"100vh",display:"flex",flexDirection:"column"}}>
     <Navbar />
     <Outlet />
+    <div style={{flex:1,display:"flex",flexDirection:"column-reverse"}}>
     <Footer />
-    </>
+    </div>
+    </div>
   )
 }
 

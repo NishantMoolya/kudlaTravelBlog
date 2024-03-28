@@ -10,6 +10,7 @@ import { NavLink } from 'react-router-dom'
 import { totalBlogsVoted } from '../api/upVoter'
 import { motion } from 'framer-motion'
 import { route } from '../animations/routeAnim'
+import noInternet from '../assets/noInternet.png'
 
 const BlogPage = () => {
   const blogInfoRef = useRef();
@@ -49,7 +50,7 @@ const BlogPage = () => {
       </div>
       <div>
       <div className='blog_view_frame' ref={blogInfoRef} onScroll={() => handleScroll()}>
-      {blogInfos.length === 0?<Loader />:null}
+      {blogInfos.length === 0?isLoading?<Loader />:<img src={noInternet} alt='no internet' style={{alignSelf:"center",height:"15rem",minWidth:"10rem"}} />:null}
       {
         blogInfos?.map((blog,ind) => (
           <>
@@ -58,8 +59,8 @@ const BlogPage = () => {
         </>))
       }
       </div>
-      <div style={{ display:'flex',alignItems:'center',justifyContent:'center'}}>
-        {!canScroll?"Reached the end no more blogs avaliable":isLoading && <Loader />}
+      <div style={{ display:'flex',alignItems:'center',justifyContent:'center',color:"var(--theme-color)"}}>
+        {!canScroll?"No more blogs avaliable":isLoading && <Loader />}
       </div>
     </div>
     </motion.div>

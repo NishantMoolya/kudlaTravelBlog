@@ -6,7 +6,6 @@
 .place_page_frame{
     padding-inline: 3vmax;
     margin-top: 63px;
-    /* background-color: burlywood; */
     display: flex;
     flex-direction: column;
     justify-content: center;

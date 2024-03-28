@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import '../styles/navbar.css'
 import { useSelector } from 'react-redux';
 import { AnimatePresence, motion } from 'framer-motion';
 import { link, menu } from '../animations/navbarAnim';
+import logo from '../assets/kudlaLogo3.webp';
 
 const Navbar = () => {
   const auth = useSelector(state => state.user.auth);
+  const navigate = useNavigate();
 
   const [dark,setDark] = useState(false);
   const theme = localStorage.getItem("kudlablogs-theme");
@@ -38,7 +40,9 @@ const Navbar = () => {
   return (
     <nav className='navbar'>
     <div className='logo_holder'>
-      <div className='logo'>Logo</div>
+      <div className='logo'>
+        <img src={logo} alt="logo" style={{width: "4rem"}} onClick={() => navigate('/')} />
+      </div>  
       <motion.button whileTap={{ rotateZ:"360deg"}} className='hamburger_menu'onClick={() => setShowMenu(p => !p)}>{!showMenu?<i className="fa-solid fa-bars"></i>:<i className="fa-solid fa-square-xmark"></i>}</motion.button>
     </div>
       <AnimatePresence>
